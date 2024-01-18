@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "yzane.markdown-pdf",  // Markdown to PDF extension
+        "vscjava.vscode-java-pack",  // General Java startup extension pack
+        "pdconsec.vscode-print",  // Code printing to PDF extension
+        "therenegadecoder.bugslang",  // BugsLang syntax highlighting extension
+        "shengchen.vscode-checkstyle"  // Java CheckStyle extension
+    ],
+}

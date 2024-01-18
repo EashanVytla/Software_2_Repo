@@ -1,0 +1,16 @@
+# Rendered files
+*.pdf
+
+# Build files
+*.class
+
+# Folders that should not be committed to the repo, even if private
+homeworks/
+labs/01-sequence-palindromes/
+labs/02-sequence-smooth/
+labs/03-junit-testing/
+projects/01-word-counter/
+
+# Folders that are normally not committed to version control
+# Uncomment and remove from cache, if needed
+# lib/
