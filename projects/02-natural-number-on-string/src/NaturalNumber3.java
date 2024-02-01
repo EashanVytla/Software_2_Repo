@@ -134,15 +134,17 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //Convert k to string and append it to the rep
         String strK = Integer.toString(k);
-        this.rep = this.rep + strK;
+        this.rep += strK;;
     }
 
     @Override
     public final int divideBy10() {
         //Substring the rep by removing the last character
         String digitStr = this.rep.substring(this.rep.length() - 1, this.rep.length());
+
         //Conver the last character to an int
         int digit = Integer.valueOf(digitStr);
+        System.out.print(digit);
 
         this.rep = this.rep.substring(0, this.rep.length() - 1);
 
