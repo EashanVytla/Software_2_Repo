@@ -99,4 +99,15 @@ public abstract class NaturalNumberTest {
 
     // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
 
+
+    /**
+     * Invokes the appropriate {@code NaturalNumber} isZero kernal method implementation
+     * Tests the isZero kernal method
+     *
+     *
+     */
+    protected abstract void isZeroTestEmpty();
+    protected abstract void divideBy10TestNN();
+    protected abstract void divideBy10TestStr();
+    protected abstract void  multiplyBy10TestInt();
 }

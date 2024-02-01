@@ -49,6 +49,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
     protected final NaturalNumber constructorRef(NaturalNumber n) {
         return new NaturalNumber3(n);
     }
+    @Override
     @Test
     public void multiplyBy10TestInt() {
         NaturalNumber test = this.constructorTest(9);
@@ -59,6 +60,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
         assertEquals(test, actual);
     }
 
+    @Override
     @Test
     public void divideBy10TestStr() {
         NaturalNumber test = this.constructorTest("81");
@@ -68,6 +70,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
 
         assertEquals(test, actual);
     }
+    @Override
     @Test
     public void divideBy10TestNN() {
         NaturalNumber numTest = new NaturalNumber1L(23);
@@ -80,6 +83,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
         assertEquals(test, actual);
     }
 
+    @Override
     @Test
     public void isZeroTestEmpty() {
         NaturalNumber test = this.constructorTest();
