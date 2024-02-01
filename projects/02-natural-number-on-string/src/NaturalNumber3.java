@@ -34,7 +34,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     private void createNewRep() {
 
         // TODO - fill in body
-        this.rep = "";
+
     }
 
     /*
@@ -45,8 +45,9 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      * No-argument constructor.
      */
     public NaturalNumber3() {
+
         // TODO - fill in body
-        this.createNewRep();
+
     }
 
     /**
@@ -59,7 +60,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert i >= 0 : "Violation of: i >= 0";
 
         // TODO - fill in body
-        this.rep = Integer.toString(i);
+
     }
 
     /**
@@ -74,7 +75,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
         // TODO - fill in body
-        this.rep = s;
+
     }
 
     /**
@@ -87,7 +88,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert n != null : "Violation of: n is not null";
 
         // TODO - fill in body
-        this.rep = n.toString();
+
     }
 
     /*
@@ -132,27 +133,28 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public final void multiplyBy10(int k) {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
+        String strK = Integer.toString(k);
+        this.rep = this.rep + strK;
 
-        // TODO - fill in body
 
     }
 
     @Override
     public final int divideBy10() {
 
-        // TODO - fill in body
+        String digitStr = this.rep.substring(0, this.rep.length()-2);
+        int digit = Integer.valueOf(digitStr);
 
         // This line added just to make the component compilable.
-        return 0;
+        return digit;
     }
 
     @Override
     public final boolean isZero() {
 
-        // TODO - fill in body
+        return this.rep.equals("");
 
-        // This line added just to make the component compilable.
-        return false;
+
     }
 
 }
