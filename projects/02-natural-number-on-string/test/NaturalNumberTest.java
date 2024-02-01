@@ -97,17 +97,27 @@ public abstract class NaturalNumberTest {
      */
     protected abstract NaturalNumber constructorRef(NaturalNumber n);
 
-    // TODO - add test cases for four constructors, multiplyBy10, divideBy10, isZero
+
 
 
     /**
-     * Invokes the appropriate {@code NaturalNumber} isZero kernal method implementation
-     * Tests the isZero kernal method
-     *
-     *
+     * Tests the Natural Number Kernal Method isZero()
+     * Tested with empty natural number
      */
     protected abstract void isZeroTestEmpty();
+    /**
+     * Tests the Natural Number Kernal Method divideBy10()
+     * tested with natural number 23 and natural number 2
+     */
     protected abstract void divideBy10TestNN();
+    /**
+     * Tests the Natural Number Kernal Method divideBy10()
+     * tested with string 81 and string 8
+     */
     protected abstract void divideBy10TestStr();
+    /**
+     * Tests the Natural Number Kernal Method multiplyBy10()
+     * tested with int 9 and int 99
+     */
     protected abstract void  multiplyBy10TestInt();
 }

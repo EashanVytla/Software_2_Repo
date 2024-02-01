@@ -134,7 +134,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //Convert k to string and append it to the rep
         String strK = Integer.toString(k);
-        this.rep += strK;;
+        this.rep += strK;
     }
 
     @Override
