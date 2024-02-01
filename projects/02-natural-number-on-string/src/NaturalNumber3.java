@@ -32,8 +32,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      * Creator of initial representation.
      */
     private void createNewRep() {
-
-        // TODO - fill in body
+        //Initializing the rep to empty string aka 0
         this.rep = "";
     }
 
@@ -45,7 +44,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      * No-argument constructor.
      */
     public NaturalNumber3() {
-        // TODO - fill in body
+        //Create a new zero representation
         this.createNewRep();
     }
 
@@ -58,7 +57,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(int i) {
         assert i >= 0 : "Violation of: i >= 0";
 
-        // TODO - fill in body
+        //Convert the integer to a string and store it in the rep
         this.rep = Integer.toString(i);
     }
 
@@ -73,7 +72,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert s.matches("0|[1-9]\\d*") : ""
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
-        // TODO - fill in body
+        //Store the string in the rep
         this.rep = s;
     }
 
@@ -86,7 +85,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public NaturalNumber3(NaturalNumber n) {
         assert n != null : "Violation of: n is not null";
 
-        // TODO - fill in body
+        //Convert the natural to a string and store it in the rep
         this.rep = n.toString();
     }
 
@@ -132,28 +131,26 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     public final void multiplyBy10(int k) {
         assert 0 <= k : "Violation of: 0 <= k";
         assert k < RADIX : "Violation of: k < 10";
+
+        //Convert k to string and append it to the rep
         String strK = Integer.toString(k);
         this.rep = this.rep + strK;
-
-
     }
 
     @Override
     public final int divideBy10() {
-
-        String digitStr = this.rep.substring(0, this.rep.length()-2);
+        //Substring the rep by removing the last character
+        String digitStr = this.rep.substring(0, this.rep.length() - 2);
+        //Conver the last character to an int
         int digit = Integer.valueOf(digitStr);
 
-        // This line added just to make the component compilable.
+        //return the digit
         return digit;
     }
 
     @Override
     public final boolean isZero() {
-
+        //Return if the rep is empty (it is zero)
         return this.rep.equals("");
-
-
     }
-
 }
