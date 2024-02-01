@@ -49,12 +49,12 @@ public class NaturalNumber3Test extends NaturalNumberTest {
     protected final NaturalNumber constructorRef(NaturalNumber n) {
         return new NaturalNumber3(n);
     }
+
     @Test
     public void multiplyBy10TestInt() {
         NaturalNumber test = this.constructorTest(9);
         NaturalNumber actual = this.constructorRef(99);
         test.multiplyBy10(9);
-
 
         assertEquals(test, actual);
     }

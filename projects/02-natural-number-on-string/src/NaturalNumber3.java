@@ -140,9 +140,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     @Override
     public final int divideBy10() {
         //Substring the rep by removing the last character
-        String digitStr = this.rep.substring(0, this.rep.length() - 2);
+        String digitStr = this.rep.substring(this.rep.length() - 1, this.rep.length());
         //Conver the last character to an int
         int digit = Integer.valueOf(digitStr);
+
+        this.rep = this.rep.substring(0, this.rep.length() - 1);
 
         //return the digit
         return digit;
