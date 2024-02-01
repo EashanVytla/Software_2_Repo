@@ -34,7 +34,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
     private void createNewRep() {
 
         // TODO - fill in body
-
+        this.rep = "";
     }
 
     /*
@@ -45,9 +45,8 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
      * No-argument constructor.
      */
     public NaturalNumber3() {
-
         // TODO - fill in body
-
+        this.createNewRep();
     }
 
     /**
@@ -60,7 +59,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert i >= 0 : "Violation of: i >= 0";
 
         // TODO - fill in body
-
+        this.rep = Integer.toString(i);
     }
 
     /**
@@ -75,7 +74,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
         // TODO - fill in body
-
+        this.rep = s;
     }
 
     /**
@@ -88,7 +87,7 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert n != null : "Violation of: n is not null";
 
         // TODO - fill in body
-
+        this.rep = n.toString();
     }
 
     /*
