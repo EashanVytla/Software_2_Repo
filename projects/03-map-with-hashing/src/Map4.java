@@ -34,7 +34,7 @@ import components.map.MapSecondary;
  *          (pf)
  * </pre>
  *
- * @author Put your name here
+ * @author Allen Thomas and Eashan Vytla
  *
  */
 public class Map4<K, V> extends MapSecondary<K, V> {
@@ -75,10 +75,14 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     private static int mod(int a, int b) {
         assert b > 0 : "Violation of: b > 0";
 
-        // TODO - fill in body
+        int val = a % b;
 
-        // This line added just to make the component compilable.
-        return 0;
+        if (a < 0) {
+            val = b - val;
+        }
+
+        return val;
+
     }
 
     /**
@@ -111,13 +115,14 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     /*
      * Constructors -----------------------------------------------------------
      */
-
+//Allen
     /**
      * No-argument constructor.
+     *
      */
     public Map4() {
 
-        // TODO - fill in body
+        this.createNewRep(DEFAULT_HASH_TABLE_SIZE);
 
     }
 
@@ -129,9 +134,10 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      * @requires hashTableSize > 0
      * @ensures this = {}
      */
+    //Allen
     public Map4(int hashTableSize) {
 
-        // TODO - fill in body
+        this.createNewRep(hashTableSize);
 
     }
 
@@ -177,24 +183,28 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      */
 
     @Override
+    //Allen
     public final void add(K key, V value) {
         assert key != null : "Violation of: key is not null";
         assert value != null : "Violation of: value is not null";
         assert !this.hasKey(key) : "Violation of: key is not in DOMAIN(this)";
 
-        // TODO - fill in body
+        int i = mod(key.hashCode(), this.hashTable.length);
+        this.hashTable[i].add(key, value);
+        this.size++;
 
     }
 
     @Override
+    //Allen
     public final Pair<K, V> remove(K key) {
         assert key != null : "Violation of: key is not null";
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
 
-        // TODO - fill in body
+        int i = mod(key.hashCode(), this.hashTable.length);
+        this.size--;
+        return this.hashTable[i].remove(key);
 
-        // This line added just to make the component compilable.
-        return null;
     }
 
     @Override
@@ -229,12 +239,12 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     }
 
     @Override
+    //Allen
     public final int size() {
 
-        // TODO - fill in body
+        return this.size;
 
-        // This line added just to make the component compilable.
-        return 0;
+
     }
 
     @Override
