@@ -1,10 +1,14 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import components.map.Map;
 
 /**
  * JUnit test fixture for {@code Map<String, String>}'s constructor and kernel
  * methods.
  *
- * @author Put your name here
+ * @author Allen Thomas and Eashan Vytla
  *
  */
 public abstract class MapTest {
@@ -79,5 +83,16 @@ public abstract class MapTest {
 
     // TODO - add test cases for constructor, add, remove, removeAny, value,
     // hasKey, and size
+
+
+    /**
+     * Tests the add method using a regular input
+     */
+    @Test
+    public void addRegularTest() {
+        Map<String, String> actual = this.constructorTest();
+        Map<String, String> expected = this.constructorRef();
+        assertEquals(actual, expected);
+    }
 
 }

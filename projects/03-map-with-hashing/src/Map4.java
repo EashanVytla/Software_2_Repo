@@ -115,7 +115,6 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     /*
      * Constructors -----------------------------------------------------------
      */
-//Allen
     /**
      * No-argument constructor.
      *
@@ -134,7 +133,6 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      * @requires hashTableSize > 0
      * @ensures this = {}
      */
-    //Allen
     public Map4(int hashTableSize) {
 
         this.createNewRep(hashTableSize);
@@ -183,7 +181,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      */
 
     @Override
-    //Allen
+
     public final void add(K key, V value) {
         assert key != null : "Violation of: key is not null";
         assert value != null : "Violation of: value is not null";
@@ -196,7 +194,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     }
 
     @Override
-    //Allen
+
     public final Pair<K, V> remove(K key) {
         assert key != null : "Violation of: key is not null";
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
