@@ -200,7 +200,6 @@ public class Map4<K, V> extends MapSecondary<K, V> {
         int i = mod(key.hashCode(), this.hashTable.length);
         this.size--;
         return this.hashTable[i].remove(key);
-
     }
 
     //Eashan
@@ -211,13 +210,15 @@ public class Map4<K, V> extends MapSecondary<K, V> {
         int i = 0;
         boolean empty = true;
 
-        while (!empty) {
+        while (empty) {
             if (this.hashTable[i].size() != 0) {
                 empty = false;
             } else {
                 i++;
             }
         }
+
+        this.size--;
 
         return this.hashTable[i].removeAny();
     }

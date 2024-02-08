@@ -86,7 +86,7 @@ public abstract class MapTest {
 
 
     /**
-     * Tests the add kernal method using a regular input
+     * Tests the add kernal method using a regular input.
      */
     @Test
     public void addRegularTest() {
@@ -156,7 +156,6 @@ public abstract class MapTest {
         actual.remove("k2");
         actual.remove("k3");
         assertEquals(actual, expected);
-
     }
 
     /**
@@ -165,17 +164,33 @@ public abstract class MapTest {
     //Eashan
     @Test
     public void removeAnyTest() {
-
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k2", "v2", "k3", "v3");
+        actual.removeAny();
+        assertEquals(actual, expected);
     }
+
+    /**
+     * Tests removeAny kernal method twice on a map
+     */
+    @Test
+    public void removeAnyTwoTest() {
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k3", "v3");
+        actual.removeAny();
+        actual.removeAny();
+        assertEquals(actual, expected);
+    }
+
 
     /**
      * Tests value kernal method on a map pair
      */
     @Test
-    //Eashan
     public void valueRegularTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        String expectedValue = "v1";
+        assertEquals(actual.value("k1"), expectedValue);
     }
 
     /**
@@ -184,7 +199,11 @@ public abstract class MapTest {
     @Test
     //Eashan
     public void valueTwoTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        String expectedValue = "v1";
+        String expectedValue2 = "v2";
+        assertEquals(actual.value("k1"), expectedValue);
+        assertEquals(actual.value("k2"), expectedValue2);
     }
 
 
@@ -195,7 +214,9 @@ public abstract class MapTest {
     @Test
     //Eashan
     public void hasKeyFalseTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        boolean expectedValue = false;
+        assertEquals(actual.hasKey("k4"), expectedValue);
     }
 
     /**
@@ -204,7 +225,9 @@ public abstract class MapTest {
     @Test
     //Eashan
     public void hasKeyTrueTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        boolean expectedValue = true;
+        assertEquals(actual.hasKey("k1"), expectedValue);
     }
 
     /**
