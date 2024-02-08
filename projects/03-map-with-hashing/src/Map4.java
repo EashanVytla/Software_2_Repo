@@ -244,10 +244,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     @Override
     //Allen
     public final int size() {
-
         return this.size;
-
-
     }
 
     @Override
