@@ -86,7 +86,7 @@ public abstract class MapTest {
 
 
     /**
-     * Tests the add method using a regular input
+     * Tests the add kernal method using a regular input
      */
     @Test
     public void addRegularTest() {
