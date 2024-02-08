@@ -2,6 +2,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import components.map.Map;
+import components.map.Map2;
 import components.map.MapSecondary;
 
 /**
@@ -34,7 +35,7 @@ import components.map.MapSecondary;
  *          (pf)
  * </pre>
  *
- * @author Put your name here
+ * @author Eashan Vytla & Allen Thomas
  *
  */
 public class Map4<K, V> extends MapSecondary<K, V> {
@@ -75,10 +76,13 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     private static int mod(int a, int b) {
         assert b > 0 : "Violation of: b > 0";
 
-        // TODO - fill in body
+        int val = a % b;
 
-        // This line added just to make the component compilable.
-        return 0;
+        if (a < 0) {
+            val = b - val;
+        }
+
+        return val;
     }
 
     /**
@@ -102,10 +106,12 @@ public class Map4<K, V> extends MapSecondary<K, V> {
          * compile; as shown, it results in a warning about an unchecked
          * conversion, though it cannot fail.
          */
+        this.size = 0;
         this.hashTable = new Map[hashTableSize];
 
-        // TODO - fill in rest of body
-
+        for (int i = 0; i < hashTableSize; i++){
+            this.hashTable[i] = new Map2<K, V>();
+        }
     }
 
     /*
@@ -116,9 +122,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      * No-argument constructor.
      */
     public Map4() {
-
-        // TODO - fill in body
-
+        this.createNewRep(DEFAULT_HASH_TABLE_SIZE);
     }
 
     /**
@@ -130,9 +134,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      * @ensures this = {}
      */
     public Map4(int hashTableSize) {
-
-        // TODO - fill in body
-
+        this.createNewRep(hashTableSize);
     }
 
     /*
@@ -197,35 +199,42 @@ public class Map4<K, V> extends MapSecondary<K, V> {
         return null;
     }
 
+    //Eashan
     @Override
     public final Pair<K, V> removeAny() {
         assert this.size() > 0 : "Violation of: this /= empty_set";
 
-        // TODO - fill in body
+        int i = 0;
+        boolean empty = true;
 
-        // This line added just to make the component compilable.
-        return null;
+        while (!empty) {
+            if (this.hashTable[i].size() != 0) {
+                empty = false;
+            } else {
+                i++;
+            }
+        }
+
+        return this.hashTable[i].removeAny();
     }
 
+    //Eashan
     @Override
     public final V value(K key) {
         assert key != null : "Violation of: key is not null";
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
 
-        // TODO - fill in body
-
-        // This line added just to make the component compilable.
-        return null;
+        int index = mod(key.hashCode(), this.hashTable.length);
+        return this.hashTable[index].value(key);
     }
 
+    //Eashan
     @Override
     public final boolean hasKey(K key) {
         assert key != null : "Violation of: key is not null";
 
-        // TODO - fill in body
-
-        // This line added just to make the component compilable.
-        return false;
+        int index = mod(key.hashCode(), this.hashTable.length);
+        return this.hashTable[index].hasKey(key);
     }
 
     @Override
