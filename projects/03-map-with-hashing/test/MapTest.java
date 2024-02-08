@@ -117,6 +117,7 @@ public abstract class MapTest {
         Map<String, String> actual = this.createFromArgsTest();
         Map<String, String> expected = this.createFromArgsRef("k1", "v1", "k2", "v2");
         actual.add("k1", "v1");
+        actual.add("k2", "v2");
         assertEquals(actual, expected);
     }
 
@@ -126,7 +127,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeEmptyMapTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v3");
+        Map<String, String> expected = this.createFromArgsRef();
+        actual.remove("k1");
+        assertEquals(actual, expected);
     }
 
     /**
@@ -135,7 +139,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeRegularTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1","k3", "v3");
+        actual.remove("k2");
+        assertEquals(actual, expected);
     }
 
     /**
@@ -144,6 +151,11 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeTwoTest() {
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1");
+        actual.remove("k2");
+        actual.remove("k3");
+        assertEquals(actual, expected);
 
     }
 
@@ -201,7 +213,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeEmptyTest() {
-
+        Map<String, String> map = this.createFromArgsTest();
+        int expected = 0;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 
     /**
@@ -210,7 +225,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeOnePairTest() {
-
+        Map<String, String> map = this.createFromArgsTest("k1", "v1");
+        int expected = 1;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 
     /**
@@ -219,6 +237,9 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeMultiplePairTest() {
-
+        Map<String, String> map = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        int expected = 3;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 }
