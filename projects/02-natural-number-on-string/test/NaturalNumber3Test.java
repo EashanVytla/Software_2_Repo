@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumber1L;
+import components.naturalnumber.NaturalNumber3;
 
 /**
  * Customized JUnit test fixture for {@code NaturalNumber3}.

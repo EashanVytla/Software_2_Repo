@@ -1,10 +1,14 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import components.map.Map;
 
 /**
  * JUnit test fixture for {@code Map<String, String>}'s constructor and kernel
  * methods.
  *
- * @author Put your name here
+ * @author Allen Thomas and Eashan Vytla
  *
  */
 public abstract class MapTest {
@@ -80,4 +84,134 @@ public abstract class MapTest {
     // TODO - add test cases for constructor, add, remove, removeAny, value,
     // hasKey, and size
 
+
+    /**
+     * Tests the add method using a regular input
+     */
+    @Test
+    public void addRegularTest() {
+        Map<String, String> actual = this.constructorTest();
+        Map<String, String> expected = this.constructorRef();
+        assertEquals(actual, expected);
+    }
+
+
+    /**
+     * Tests add kernal method on the empty map
+     */
+    //allen
+    @Test
+    public void addEmptyTest() {
+
+    }
+    /**
+     * Tests the add kernal method by calling it twice
+     */
+    //allen
+    @Test
+    public void addThreeTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on the mpa that will be empty
+     */
+    //allen
+    @Test
+    public void removeEmptyMapTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on a singl pair
+     */
+    //allen
+    @Test
+    public void removeRegularTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on two pairs
+     */
+    //allen
+    @Test
+    public void removeTwoTest() {
+
+    }
+
+    /**
+     * Tests removeAny kernal method on a map
+     */
+    //Eashan
+    @Test
+    public void removeAnyTest() {
+
+
+    }
+
+    /**
+     * Tests value kernal method on a map pair
+     */
+    @Test
+    //Eashan
+    public void valueRegularTest() {
+
+    }
+
+    /**
+     * Tests value kernal method on two map pairs
+     */
+    @Test
+    //Eashan
+    public void valueTwoTest() {
+
+    }
+
+
+
+    /**
+     * Tests hasKey kernal method when it is false
+     */
+    @Test
+    //Eashan
+    public void hasKeyFalseTest() {
+
+    }
+
+    /**
+     * Tests hasKey kernal method when it is true
+     */
+    @Test
+    //Eashan
+    public void hasKeyTrueTest() {
+
+    }
+
+    /**
+     * Tests size kernal method when the map is empty
+     */
+    //allen
+    @Test
+    public void sizeEmptyTest() {
+
+    }
+
+    /**
+     * Tests size on a map with a single pair.
+     */
+    //allen
+    @Test
+    public void sizeOnePairTest() {
+
+    }
+
+    /**
+     * Tests size kernal method when there are mutliple pairs.
+     */
+    //allen
+    @Test
+    public void sizeMultiplePairTest() {
+
+    }
 }

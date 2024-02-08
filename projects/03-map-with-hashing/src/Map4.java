@@ -117,9 +117,9 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     /*
      * Constructors -----------------------------------------------------------
      */
-
     /**
      * No-argument constructor.
+     *
      */
     public Map4() {
         this.createNewRep(DEFAULT_HASH_TABLE_SIZE);
@@ -179,24 +179,28 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      */
 
     @Override
+
     public final void add(K key, V value) {
         assert key != null : "Violation of: key is not null";
         assert value != null : "Violation of: value is not null";
         assert !this.hasKey(key) : "Violation of: key is not in DOMAIN(this)";
 
-        // TODO - fill in body
+        int i = mod(key.hashCode(), this.hashTable.length);
+        this.hashTable[i].add(key, value);
+        this.size++;
 
     }
 
     @Override
+
     public final Pair<K, V> remove(K key) {
         assert key != null : "Violation of: key is not null";
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
 
-        // TODO - fill in body
+        int i = mod(key.hashCode(), this.hashTable.length);
+        this.size--;
+        return this.hashTable[i].remove(key);
 
-        // This line added just to make the component compilable.
-        return null;
     }
 
     //Eashan
@@ -238,12 +242,12 @@ public class Map4<K, V> extends MapSecondary<K, V> {
     }
 
     @Override
+    //Allen
     public final int size() {
 
-        // TODO - fill in body
+        return this.size;
 
-        // This line added just to make the component compilable.
-        return 0;
+
     }
 
     @Override

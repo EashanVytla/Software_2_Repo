@@ -1,3 +1,7 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
 import components.map.Map;
 import components.map.Map1L;
 
@@ -14,6 +18,16 @@ public class Map4Test extends MapTest {
     @Override
     protected final Map<String, String> constructorRef() {
         return new Map1L<String, String>();
+    }
+
+   /**
+     * Tests the no Arg constructor.
+     */
+    @Test
+    public void noArgConstructorTest() {
+        Map<String, String> actual = this.constructorTest();
+        Map<String, String> expected = this.constructorRef();
+        assertEquals(actual, expected);
     }
 
 }
