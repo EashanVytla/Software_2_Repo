@@ -29,6 +29,4 @@ public class Map4Test extends MapTest {
         Map<String, String> expected = this.constructorRef();
         assertEquals(actual, expected);
     }
-
-
 }
