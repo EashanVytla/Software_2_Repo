@@ -75,13 +75,13 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      */
     private static int mod(int a, int b) {
         assert b > 0 : "Violation of: b > 0";
-
+        //a mod b
         int val = a % b;
-
+        //if a is negative has to work backwards
         if (a < 0) {
             val = b - val;
         }
-
+        //return mod
         return val;
     }
 
@@ -106,9 +106,11 @@ public class Map4<K, V> extends MapSecondary<K, V> {
          * compile; as shown, it results in a warning about an unchecked
          * conversion, though it cannot fail.
          */
+        //set size to 0
         this.size = 0;
+        //create a an empty array of maps
         this.hashTable = new Map[hashTableSize];
-
+        //create new empty map pairs in array
         for (int i = 0; i < hashTableSize; i++){
             this.hashTable[i] = new Map2<K, V>();
         }
@@ -122,6 +124,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      *
      */
     public Map4() {
+        //create rep with defualt size
         this.createNewRep(DEFAULT_HASH_TABLE_SIZE);
     }
 
@@ -134,6 +137,7 @@ public class Map4<K, V> extends MapSecondary<K, V> {
      * @ensures this = {}
      */
     public Map4(int hashTableSize) {
+        //create size based off input
         this.createNewRep(hashTableSize);
     }
 
@@ -185,8 +189,11 @@ public class Map4<K, V> extends MapSecondary<K, V> {
         assert value != null : "Violation of: value is not null";
         assert !this.hasKey(key) : "Violation of: key is not in DOMAIN(this)";
 
+
         int i = mod(key.hashCode(), this.hashTable.length);
+        //add pair to array
         this.hashTable[i].add(key, value);
+        //increase size variable
         this.size++;
 
     }
@@ -198,18 +205,19 @@ public class Map4<K, V> extends MapSecondary<K, V> {
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
 
         int i = mod(key.hashCode(), this.hashTable.length);
+        //change size variable
         this.size--;
+        //remove from array
         return this.hashTable[i].remove(key);
     }
 
-    //Eashan
     @Override
     public final Pair<K, V> removeAny() {
         assert this.size() > 0 : "Violation of: this /= empty_set";
 
         int i = 0;
         boolean empty = true;
-
+        //whiule empty find the next non empty map
         while (empty) {
             if (this.hashTable[i].size() != 0) {
                 empty = false;
@@ -217,34 +225,34 @@ public class Map4<K, V> extends MapSecondary<K, V> {
                 i++;
             }
         }
-
+        //size variable decreased
         this.size--;
-
+        //return map pair removed
         return this.hashTable[i].removeAny();
     }
 
-    //Eashan
     @Override
     public final V value(K key) {
         assert key != null : "Violation of: key is not null";
         assert this.hasKey(key) : "Violation of: key is in DOMAIN(this)";
 
         int index = mod(key.hashCode(), this.hashTable.length);
+        //return the value
         return this.hashTable[index].value(key);
     }
 
-    //Eashan
     @Override
     public final boolean hasKey(K key) {
         assert key != null : "Violation of: key is not null";
 
         int index = mod(key.hashCode(), this.hashTable.length);
+        //check if the pair hast  the key
         return this.hashTable[index].hasKey(key);
     }
 
     @Override
-    //Allen
     public final int size() {
+        //return size variable thats been being updated
         return this.size;
     }
 
