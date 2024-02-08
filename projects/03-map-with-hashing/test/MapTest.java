@@ -86,12 +86,13 @@ public abstract class MapTest {
 
 
     /**
-     * Tests the add method using a regular input
+     * Tests the add kernal method using a regular input
      */
     @Test
     public void addRegularTest() {
-        Map<String, String> actual = this.constructorTest();
-        Map<String, String> expected = this.constructorRef();
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1", "k2", "v2", "k3", "v3");
+        actual.add("k3", "v3");
         assertEquals(actual, expected);
     }
 
@@ -102,15 +103,22 @@ public abstract class MapTest {
     //allen
     @Test
     public void addEmptyTest() {
-
+        Map<String, String> actual = this.createFromArgsTest();
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1");
+        actual.add("k1", "v1");
+        assertEquals(actual, expected);
     }
     /**
      * Tests the add kernal method by calling it twice
      */
     //allen
     @Test
-    public void addThreeTest() {
-
+    public void addTwoTest() {
+        Map<String, String> actual = this.createFromArgsTest();
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1", "k2", "v2");
+        actual.add("k1", "v1");
+        actual.add("k2", "v2");
+        assertEquals(actual, expected);
     }
 
     /**
@@ -119,7 +127,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeEmptyMapTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v3");
+        Map<String, String> expected = this.createFromArgsRef();
+        actual.remove("k1");
+        assertEquals(actual, expected);
     }
 
     /**
@@ -128,7 +139,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeRegularTest() {
-
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1","k3", "v3");
+        actual.remove("k2");
+        assertEquals(actual, expected);
     }
 
     /**
@@ -137,6 +151,11 @@ public abstract class MapTest {
     //allen
     @Test
     public void removeTwoTest() {
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1");
+        actual.remove("k2");
+        actual.remove("k3");
+        assertEquals(actual, expected);
 
     }
 
@@ -194,7 +213,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeEmptyTest() {
-
+        Map<String, String> map = this.createFromArgsTest();
+        int expected = 0;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 
     /**
@@ -203,7 +225,10 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeOnePairTest() {
-
+        Map<String, String> map = this.createFromArgsTest("k1", "v1");
+        int expected = 1;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 
     /**
@@ -212,6 +237,9 @@ public abstract class MapTest {
     //allen
     @Test
     public void sizeMultiplePairTest() {
-
+        Map<String, String> map = this.createFromArgsTest("k1", "v1", "k2", "v2", "k3", "v3");
+        int expected = 3;
+        int actual = map.size();
+        assertEquals(actual, expected);
     }
 }

@@ -30,4 +30,5 @@ public class Map4Test extends MapTest {
         assertEquals(actual, expected);
     }
 
+
 }
