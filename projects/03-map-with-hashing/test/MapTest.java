@@ -90,8 +90,9 @@ public abstract class MapTest {
      */
     @Test
     public void addRegularTest() {
-        Map<String, String> actual = this.constructorTest();
-        Map<String, String> expected = this.constructorRef();
+        Map<String, String> actual = this.createFromArgsTest("k1", "v1", "k2", "v2");
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1", "k2", "v2", "k3", "v3");
+        actual.add("k3", "v3");
         assertEquals(actual, expected);
     }
 
@@ -102,15 +103,21 @@ public abstract class MapTest {
     //allen
     @Test
     public void addEmptyTest() {
-
+        Map<String, String> actual = this.createFromArgsTest();
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1");
+        actual.add("k1", "v1");
+        assertEquals(actual, expected);
     }
     /**
      * Tests the add kernal method by calling it twice
      */
     //allen
     @Test
-    public void addThreeTest() {
-
+    public void addTwoTest() {
+        Map<String, String> actual = this.createFromArgsTest();
+        Map<String, String> expected = this.createFromArgsRef("k1", "v1", "k2", "v2");
+        actual.add("k1", "v1");
+        assertEquals(actual, expected);
     }
 
     /**
