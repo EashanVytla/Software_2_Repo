@@ -95,4 +95,123 @@ public abstract class MapTest {
         assertEquals(actual, expected);
     }
 
+
+    /**
+     * Tests add kernal method on the empty map
+     */
+    //allen
+    @Test
+    public void addEmptyTest() {
+
+    }
+    /**
+     * Tests the add kernal method by calling it twice
+     */
+    //allen
+    @Test
+    public void addThreeTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on the mpa that will be empty
+     */
+    //allen
+    @Test
+    public void removeEmptyMapTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on a singl pair
+     */
+    //allen
+    @Test
+    public void removeRegularTest() {
+
+    }
+
+    /**
+     * Tests remove kernal method on two pairs
+     */
+    //allen
+    @Test
+    public void removeTwoTest() {
+
+    }
+
+    /**
+     * Tests removeAny kernal method on a map
+     */
+    //Eashan
+    @Test
+    public void removeAnyTest() {
+
+
+    }
+
+    /**
+     * Tests value kernal method on a map pair
+     */
+    @Test
+    //Eashan
+    public void valueRegularTest() {
+
+    }
+
+    /**
+     * Tests value kernal method on two map pairs
+     */
+    @Test
+    //Eashan
+    public void valueTwoTest() {
+
+    }
+
+
+
+    /**
+     * Tests hasKey kernal method when it is false
+     */
+    @Test
+    //Eashan
+    public void hasKeyFalseTest() {
+
+    }
+
+    /**
+     * Tests hasKey kernal method when it is true
+     */
+    @Test
+    //Eashan
+    public void hasKeyTrueTest() {
+
+    }
+
+    /**
+     * Tests size kernal method when the map is empty
+     */
+    //allen
+    @Test
+    public void sizeEmptyTest() {
+
+    }
+
+    /**
+     * Tests size on a map with a single pair.
+     */
+    //allen
+    @Test
+    public void sizeOnePairTest() {
+
+    }
+
+    /**
+     * Tests size kernal method when there are mutliple pairs.
+     */
+    //allen
+    @Test
+    public void sizeMultiplePairTest() {
+
+    }
 }

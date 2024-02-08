@@ -21,7 +21,7 @@ public class Map4Test extends MapTest {
     }
 
    /**
-     * Tests the no-argument constructor.
+     * Tests the no Arg constructor.
      */
     @Test
     public void noArgConstructorTest() {
