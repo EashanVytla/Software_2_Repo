@@ -157,20 +157,17 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
     @Override
     public final int divideBy10() {
+
         //Substring the rep by removing the last character
-
-
-        //return the digit
-        //return digit;
         String digitStr = this.rep.substring(this.rep.length() - 1, this.rep.length());
         int digit = 0;
+        //if its empty
         if(this.rep.equals("")){
             digit = 0;
         }else{
 
         //Conver the last character to an int
             digit = Integer.valueOf(digitStr);
-            System.out.print(digit);
             this.rep = this.rep.substring(0, this.rep.length() - 1);
         }
         return digit;

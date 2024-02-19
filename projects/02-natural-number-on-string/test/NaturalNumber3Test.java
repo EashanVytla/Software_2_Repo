@@ -90,4 +90,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
 
         assertEquals(test.isZero(), true);
     }
+
+
+
 }
