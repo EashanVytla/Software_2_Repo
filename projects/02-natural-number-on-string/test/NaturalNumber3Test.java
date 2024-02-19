@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -50,6 +51,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
         return new NaturalNumber3(n);
     }
 
+    //test routine case with 9 and 99
     @Override
     @Test
     public void multiplyBy10TestInt() {
@@ -60,6 +62,34 @@ public class NaturalNumber3Test extends NaturalNumberTest {
         assertEquals(test, actual);
     }
 
+    //test empty case where NN is empty and appends 2
+    @Test
+    public void multiplyBy10EmptyTest() {
+        NaturalNumber actual = this.constructorTest();
+        NaturalNumber expected = this.constructorRef(2);
+        actual.multiplyBy10(2);
+        assertEquals(actual, expected);
+
+    }
+    //test multiply by 10 to go voer the max integer value
+    @Test
+    public void multiplyBy10MaxTest() {
+        NaturalNumber actual = this.constructorTest("2147483649");
+        NaturalNumber expected = this.constructorRef("214748364");
+        expected.multiplyBy10(9);
+        assertEquals(actual, expected);
+
+    }
+    //test MultiplyBy10 when a NN is 0
+    @Test
+    public void multiplyBy10ZeroTest() {
+        NaturalNumber actual = this.constructorTest(20);
+        NaturalNumber expected = this.constructorRef(2);
+        expected.multiplyBy10(0);
+        assertEquals(actual, expected);
+
+    }
+    //Test DivideBy10 with the Str Constructor Routine case
     @Override
     @Test
     public void divideBy10TestStr() {
@@ -70,6 +100,7 @@ public class NaturalNumber3Test extends NaturalNumberTest {
 
         assertEquals(test, actual);
     }
+    //Test Divide By 10 NN constructor routine cas
     @Override
     @Test
     public void divideBy10TestNN() {
@@ -82,15 +113,79 @@ public class NaturalNumber3Test extends NaturalNumberTest {
 
         assertEquals(test, actual);
     }
+//Test DivideBy10 With both being 0
+    @Test
+    public void divideBy10ZeroTest() {
+        NaturalNumber actual = this.constructorTest();
+        NaturalNumber expected = this.constructorRef(0);
+        int expectedNum = 0;
+        int remainder = actual.divideBy10();
+        assertEquals(expected, actual);
+        assertEquals(expectedNum, remainder);
 
+    }
+//Test is Zero with an empty NN
     @Override
     @Test
     public void isZeroTestEmpty() {
         NaturalNumber test = this.constructorTest();
-
-        assertEquals(test.isZero(), true);
+        assertTrue(test.isZero());
     }
+    //Test is Zero with a NN that is 0
+    @Test
+    public void isZeroTrueTest() {
+        NaturalNumber actual = this.constructorTest(0);
+        NaturalNumber expected = this.constructorRef(0);
+        boolean actualBoolean = actual.isZero();
+        boolean expectedBoolean = expected.isZero();
+        assertTrue(actualBoolean);
+        assertTrue(expectedBoolean);
+    }
+    //Test isZero with a NN that is not 0
 
+    @Test
+    public void isZeroFalseTest() {
+        NaturalNumber actual = this.constructorTest(2);
+        NaturalNumber expected = this.constructorRef(9);
+        boolean actualBoolean = actual.isZero();
+        boolean expectedBoolean = expected.isZero();
+        assertTrue(!actualBoolean);
+        assertTrue(!expectedBoolean);
 
-
+    }
+    //Testing the empty contructor
+    @Test
+    public void emptyConstructorTest() {
+        NaturalNumber actual = this.constructorTest();
+        NaturalNumber expected = this.constructorRef();
+        assertEquals(actual, expected);
+    }
+    //testing the constructor with zero
+    @Test
+    public void constructorZeroTest() {
+        NaturalNumber actual = this.constructorTest(0);
+        NaturalNumber expected = this.constructorRef(0);
+        assertEquals(actual, expected);
+    }
+    //testing string constructor
+    @Test
+    public void ConstructorStringTest() {
+        NaturalNumber actual = this.constructorTest("65");
+        NaturalNumber expected = this.constructorRef("65");
+        assertEquals(actual, expected);
+    }
+    //testing string contructor with zero
+    @Test
+    public void ConstructorStringZeroTest() {
+        NaturalNumber actual = this.constructorTest("0");
+        NaturalNumber expected = this.constructorRef("0");
+        assertEquals(actual, expected);
+    }
+    //testing string contructor with number over max Int value
+    @Test
+    public void ConstructorStringMaxTest() {
+        NaturalNumber actual = this.constructorTest("2147483648");
+        NaturalNumber expected = this.constructorRef("2147483648");
+        assertEquals(actual, expected);
+    }
 }
