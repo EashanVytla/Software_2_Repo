@@ -54,5 +54,40 @@ public final class ProgramSkeleton {
 
         return balanced;
     }
+
+
+
+
+    @Override
+    public final void multiplyBy10(int k) {
+        assert 0 <= k : "Violation of: 0 <= k";
+        assert k < RADIX : "Violation of: k < 10";
+        if(this.isZero()){
+            this.digits.remove(0);
+            this.digits.add(0,k);
+        }else{
+            this.digits.add(this.digits.length(),k);
+        }
+    }
+
+    @Override
+    public final int divideBy10() {
+        int digit = 0;
+        if(!this.isZero()){
+            digit = this.digits.remove(this.digits.length()-1);
+        }
+        return digit;
+    }
+
+    @Override
+    public final boolean isZero() {
+        boolean isZero = false;
+        if(this.digits.length() == 1){
+            int num = this.digits.remove(0);
+            isZero = num == 0;
+            this.digits.add(0,0);
+        }
+        return isZero;
+    }
 }
 

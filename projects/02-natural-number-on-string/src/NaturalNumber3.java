@@ -58,7 +58,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert i >= 0 : "Violation of: i >= 0";
 
         //Convert the integer to a string and store it in the rep
-        this.rep = Integer.toString(i);
+        if(i==0){
+            this.createNewRep();
+        }else{
+            this.rep = Integer.toString(i);
+        }
     }
 
     /**
@@ -73,7 +77,11 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
                 + "Violation of: there exists n: NATURAL (s = TO_STRING(n))";
 
         //Store the string in the rep
-        this.rep = s;
+        if(s.equals("0")){
+            this.createNewRep();
+        }else{
+            this.rep = s;
+        }
     }
 
     /**
@@ -86,7 +94,12 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
         assert n != null : "Violation of: n is not null";
 
         //Convert the natural to a string and store it in the rep
-        this.rep = n.toString();
+        if(n.isZero()){
+            this.createNewRep();
+        }else{
+            this.rep = n.toString();
+        }
+
     }
 
     /*
@@ -134,21 +147,32 @@ public class NaturalNumber3 extends NaturalNumberSecondary {
 
         //Convert k to string and append it to the rep
         String strK = Integer.toString(k);
-        this.rep += strK;
+        if(this.rep.isEmpty()){
+            this.rep = strK;
+        }else{
+            this.rep += strK;
+        }
+
     }
 
     @Override
     public final int divideBy10() {
         //Substring the rep by removing the last character
-        String digitStr = this.rep.substring(this.rep.length() - 1, this.rep.length());
 
-        //Conver the last character to an int
-        int digit = Integer.valueOf(digitStr);
-        System.out.print(digit);
-
-        this.rep = this.rep.substring(0, this.rep.length() - 1);
 
         //return the digit
+        //return digit;
+        String digitStr = this.rep.substring(this.rep.length() - 1, this.rep.length());
+        int digit = 0;
+        if(this.rep.equals("")){
+            digit = 0;
+        }else{
+
+        //Conver the last character to an int
+            digit = Integer.valueOf(digitStr);
+            System.out.print(digit);
+            this.rep = this.rep.substring(0, this.rep.length() - 1);
+        }
         return digit;
     }
 
