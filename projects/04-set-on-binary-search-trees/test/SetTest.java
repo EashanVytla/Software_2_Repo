@@ -80,6 +80,7 @@ public abstract class SetTest {
         actual.add("one");
         assertEquals(actual, expected);
     }
+
     //tests with adding one to non empty
     @Test
     public void addRoutineTest() {
@@ -88,6 +89,7 @@ public abstract class SetTest {
         expected.add("two");
         assertEquals(actual, expected);
     }
+
     //tests removing a element to become empty
     @Test
     public void removeEmptySetTest() {
@@ -97,6 +99,7 @@ public abstract class SetTest {
         assertEquals(expected, actual);
         assertEquals(removed, "one");
     }
+
     //tests removing from a non empty set
     @Test
     public void removeRoutineTest() {
@@ -104,8 +107,9 @@ public abstract class SetTest {
         Set<String> expected = this.createFromArgsRef("one");
         String removed = actual.remove("two");
         assertEquals(expected, actual);
-        assertEquals(removed, "one");
+        assertEquals(removed, "two");
     }
+
     //tests remove any to become empty set
     @Test
     public void removeAnyEmptyTest() {
@@ -114,8 +118,8 @@ public abstract class SetTest {
         String removedActual = actual.removeAny();
         boolean contains = expected.contains(removedActual);
         assertTrue(contains);
-        assertEquals(expected,actual);
     }
+
     //tests contains when it is true
     @Test
     public void containsTrueTest() {
@@ -123,6 +127,7 @@ public abstract class SetTest {
         boolean contains = n.contains("one");
         assertTrue(contains);
     }
+
     //tests contains when it is true and multiple in set
     @Test
     public void containsTrueMultipleTest() {
@@ -130,6 +135,7 @@ public abstract class SetTest {
         boolean contains = n.contains("two");
         assertTrue(contains);
     }
+
     //tests contains when it is false and single ins et
     @Test
     public void containsFalseTest() {
@@ -137,6 +143,7 @@ public abstract class SetTest {
         boolean contains = set.contains("four");
         assertTrue(!contains);
     }
+
     //tests contains when it is false and multiple in set
     @Test
     public void containsFalseMultipleTest() {
@@ -144,6 +151,7 @@ public abstract class SetTest {
         boolean contains = set.contains("four");
         assertTrue(!contains);
     }
+
     //tests size when set is empty
     @Test
     public void sizeEmptyTest() {
@@ -152,6 +160,7 @@ public abstract class SetTest {
         int actual = set.size();
         assertEquals(actual, expected);
     }
+
     //tests size when set has multple elements
     @Test
     public void sizeRoutineTest() {
@@ -160,6 +169,7 @@ public abstract class SetTest {
         int actual = set.size();
         assertEquals(actual, expected);
     }
+
     //tests size when set has one element
     @Test
     public void sizeOneTest() {

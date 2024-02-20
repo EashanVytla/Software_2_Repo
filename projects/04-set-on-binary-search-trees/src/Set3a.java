@@ -54,28 +54,32 @@ public class Set3a<T extends Comparable<T>> extends SetSecondary<T> {
         assert t != null : "Violation of: t is not null";
         assert x != null : "Violation of: x is not null";
 
+        //Initializing exists boolean to false
         boolean exists = false;
         if (t.height() > 0) {
+            //Initializing left and right trees
             BinaryTree<T> left = t.newInstance();
             BinaryTree<T> right = t.newInstance();
-            T root;
 
-            root = t.disassemble(left, right);
+            T root = t.disassemble(left, right);
 
             if (x.compareTo(root) == 0) {
                 //If x = root, then we found our target
+                System.out.println("HERE");
                 exists = true;
             } else if (x.compareTo(root) < 0) {
                 //If x < root, then it is in the left
-                isInTree(left, x);
+                exists = isInTree(left, x);
             } else {
                 //If x > root, then it is in the right
-                isInTree(right, x);
+                exists = isInTree(right, x);
             }
 
+            //Reassemble the tree
             t.assemble(root, left, right);
         }
 
+        //Return the result of if it exists or not
         return exists;
     }
 
@@ -98,21 +102,28 @@ public class Set3a<T extends Comparable<T>> extends SetSecondary<T> {
         assert t != null : "Violation of: t is not null";
         assert x != null : "Violation of: x is not null";
 
-        if(t.height() > 0){
-            BinaryTree<T> left = t.newInstance();
-            BinaryTree<T> right = t.newInstance();
-            T root;
+        //Initializing left & right trees
+        BinaryTree<T> left = t.newInstance();
+        BinaryTree<T> right = t.newInstance();
 
-            root = t.disassemble(left, right);
+        //Base case
+        if (t.height() > 0) {
+            //Dissasembling the tree
+            T root = t.disassemble(left, right);
 
             if (x.compareTo(root) < 0) {
                 //If x < root, then insert x in the left tree
                 insertInTree(left, x);
             } else {
+                //If x > root, then insert x in the right tree
                 insertInTree(right, x);
             }
 
+            //Reconstruct the tree
             t.assemble(root, left, right);
+        } else {
+            //Reconstruct the tree but with x as the root
+            t.assemble(x, left, right);
         }
     }
 
@@ -135,19 +146,30 @@ public class Set3a<T extends Comparable<T>> extends SetSecondary<T> {
         assert t != null : "Violation of: t is not null";
         assert t.size() > 0 : "Violation of: |t| > 0";
 
-        T root;
+        //Intializing the smallest to the root node
+        T smallest = t.root();
+
+        //Intializing the left and right trees
         BinaryTree<T> left = new BinaryTree1<>();
         BinaryTree<T> right = new BinaryTree1<>();
 
-        root = t.disassemble(left, right);
+        //Dissasembling the tree
+        T root = t.disassemble(left, right);
 
+        //Base case
         if (left.size() != 0) {
-            removeSmallest(left);
+            //recursive call
+            smallest = removeSmallest(left);
+
+            //Reassembling the tree
+            t.assemble(root, left, right);
+        } else {
+            //Transfering the right to the current tree
+            t.transferFrom(right);
         }
 
-        t.assemble(root, left, right);
-
-        return right.disassemble(left, right);
+        //Returning the smallest element that was removed
+        return smallest;
     }
 
     /**
@@ -174,20 +196,40 @@ public class Set3a<T extends Comparable<T>> extends SetSecondary<T> {
         assert x != null : "Violation of: x is not null";
         assert t.size() > 0 : "Violation of: x is in labels(t)";
 
+        //Initializing the removed element to null
         T removed = null;
-        if (t.height() > 0) {
-            T root;
-            BinaryTree<T> left = t.newInstance();
-            BinaryTree<T> right = t.newInstance();
 
-            root = t.disassemble(left, right);
+        //Initializing the left and right trees
+        BinaryTree<T> left = t.newInstance();
+        BinaryTree<T> right = t.newInstance();
 
-            if (x.compareTo(root) < 0) {
-                removed = removeFromTree(left, x);
-            } else if (x.compareTo(root) > 0) {
-                removed = removeFromTree(right, x);
+        //Disassembling the tree
+        T root = t.disassemble(left, right);
+
+        if (x.compareTo(root) < 0) {
+            //If x < root, then remove from the left
+            removed = removeFromTree(left, x);
+
+            //Reassemble the tree
+            t.assemble(root, left, right);
+        } else if (x.compareTo(root) > 0) {
+            //If x > root, then remove from the right
+            removed = removeFromTree(right, x);
+
+            //Reassemble the tree
+            t.assemble(root, left, right);
+        } else {
+            //Set removed to root
+            removed = root;
+
+            //Reassembling the left and right trees
+            if (left.size() == 0) {
+                t.transferFrom(right);
+            } else if (right.size() == 0) {
+                t.transferFrom(left);
             } else {
-                removed = removeFromTree(right, x); //TODO: change this!
+                root = removeSmallest(right);
+                t.assemble(root, left, right);
             }
         }
 
