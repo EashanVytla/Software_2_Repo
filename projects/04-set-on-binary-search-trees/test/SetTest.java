@@ -1,3 +1,8 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
 import components.set.Set;
 
 /**
@@ -67,5 +72,100 @@ public abstract class SetTest {
     }
 
     // TODO - add test cases for constructor, add, remove, removeAny, contains, and size
-
+    //testing adding from empty set
+    @Test
+    public void addEmptySetTest() {
+        Set<String> actual = this.createFromArgsTest();
+        Set<String> expected = this.createFromArgsRef("one");
+        actual.add("one");
+        assertEquals(actual, expected);
+    }
+    //tests with adding one to non empty
+    @Test
+    public void addRoutineTest() {
+        Set<String> actual = this.createFromArgsTest("one","two");
+        Set<String> expected = this.createFromArgsRef("one");
+        expected.add("two");
+        assertEquals(actual, expected);
+    }
+    //tests removing a element to become empty
+    @Test
+    public void removeEmptySetTest() {
+        Set<String> actual = this.createFromArgsTest();
+        Set<String> expected = this.createFromArgsRef("one");
+        String removed = expected.remove("one");
+        assertEquals(expected, actual);
+        assertEquals(removed, "one");
+    }
+    //tests removing from a non empty set
+    @Test
+    public void removeRoutineTest() {
+        Set<String> actual = this.createFromArgsTest("one","two");
+        Set<String> expected = this.createFromArgsRef("one");
+        String removed = actual.remove("two");
+        assertEquals(expected, actual);
+        assertEquals(removed, "one");
+    }
+    //tests remove any to become empty set
+    @Test
+    public void removeAnyEmptyTest() {
+        Set<String> actual = this.createFromArgsTest("one");
+        Set<String> expected = this.createFromArgsRef("one");
+        String removedActual = actual.removeAny();
+        boolean contains = expected.contains(removedActual);
+        assertTrue(contains);
+        assertEquals(expected,actual);
+    }
+    //tests contains when it is true
+    @Test
+    public void containsTrueTest() {
+        Set<String> n = this.createFromArgsTest("one");
+        boolean contains = n.contains("one");
+        assertTrue(contains);
+    }
+    //tests contains when it is true and multiple in set
+    @Test
+    public void containsTrueMultipleTest() {
+        Set<String> n = this.createFromArgsTest("one","two","three");
+        boolean contains = n.contains("two");
+        assertTrue(contains);
+    }
+    //tests contains when it is false and single ins et
+    @Test
+    public void containsFalseTest() {
+        Set<String> set = this.createFromArgsTest("one");
+        boolean contains = set.contains("four");
+        assertTrue(!contains);
+    }
+    //tests contains when it is false and multiple in set
+    @Test
+    public void containsFalseMultipleTest() {
+        Set<String> set = this.createFromArgsTest("one","two","three");
+        boolean contains = set.contains("four");
+        assertTrue(!contains);
+    }
+    //tests size when set is empty
+    @Test
+    public void sizeEmptyTest() {
+        Set<String> set = this.createFromArgsTest();
+        int expected = 0;
+        int actual = set.size();
+        assertEquals(actual, expected);
+    }
+    //tests size when set has multple elements
+    @Test
+    public void sizeRoutineTest() {
+        Set<String> set = this.createFromArgsTest("one","two","three");
+        int expected = 3;
+        int actual = set.size();
+        assertEquals(actual, expected);
+    }
+    //tests size when set has one element
+    @Test
+    public void sizeOneTest() {
+        Set<String> set = this.createFromArgsTest("one");
+        int expected = 1;
+        int actual = set.size();
+        assertEquals(actual, expected);
+    }
 }
