@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 import components.queue.Queue;
+import components.queue.Queue1L;
 import components.sortingmachine.SortingMachine;
 import components.sortingmachine.SortingMachineSecondary;
 
@@ -225,9 +226,18 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * requires clause, because it must be true when using the array
          * representation for a complete binary tree.
          */
-
-        // TODO - fill in body
+        int endIndex = array.length - 1;
+        int leftIndex = 1 + 2*top;
+        int rightIndex = 1 + leftIndex;
         // *** you must use the recursive algorithm discussed in class ***
+        if(!isHeap(array,top,endIndex,order)){
+
+            heapify(array, leftIndex, order);
+            heapify(array, rightIndex, order);
+            siftDown(array, top, endIndex, order);
+
+        }
+
 
     }
 
@@ -388,8 +398,11 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      */
     //Allen Thomas
     private void createNewRep(Comparator<T> order) {
-
-        // TODO - fill in body
+        this.heap = new T[0];
+        this.entries = new Queue1L<T>();
+        this.heapSize = 0;
+        this.machineOrder = order;
+        this.insertionMode = true;
 
     }
 
@@ -462,8 +475,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert x != null : "Violation of: x is not null";
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
 
-        // TODO - fill in body
-
+        this.entries.enqueue(x);
         assert this.conventionHolds();
     }
     //Eashan Vytla
@@ -482,11 +494,17 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
                 .isInInsertionMode() : "Violation of: not this.insertion_mode";
         assert this.size() > 0 : "Violation of: this.contents /= {}";
 
-        // TODO - fill in body
 
+        T first = this.heap[0];
+        int  top = 0;
+        if(this.heapSize >1){
+            this.heap.exchangeEntries(0,this.heapSize-1);
+            siftDown(this.heap,top,this.heapSize-2,this.machineOrder);
+        }
+        this.heapSize--;
         assert this.conventionHolds();
         // Fix this line to return the result after checking the convention.
-        return null;
+        return first;
     }
 
     @Override
@@ -504,11 +522,20 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     @Override
     public final int size() {
 
-        // TODO - fill in body
+        int size = 0;
+        if(!this.insertionMode){
+            //size of heap when in extraction
+            size = this.heapSize;
+
+        }else{
+            //length of queue in insertion
+            size = this.entries.length();
+
+        }
 
         assert this.conventionHolds();
-        // Fix this line to return the result after checking the convention.
-        return 0;
+        return size;
+
     }
 
     @Override
