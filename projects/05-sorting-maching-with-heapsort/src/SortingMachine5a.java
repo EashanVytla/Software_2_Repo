@@ -108,6 +108,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      * @requires 0 <= i < |array| and 0 <= j < |array|
      * @ensures array = [#array with entries at indices i and j exchanged]
      */
+    //Eashan Vytla
     private static <T> void exchangeEntries(T[] array, int i, int j) {
         assert array != null : "Violation of: array is not null";
         assert 0 <= i : "Violation of: 0 <= i";
@@ -156,6 +157,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      * [the other entries in array are the same as in #array]
      * </pre>
      */
+    //Eashan Vytla
     private static <T> void siftDown(T[] array, int top, int last,
             Comparator<T> order) {
         assert array != null : "Violation of: array is not null";
@@ -209,6 +211,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      * perms(array, #array)
      * </pre>
      */
+    //Allen Thomas
     private static <T> void heapify(T[] array, int top, Comparator<T> order) {
         assert array != null : "Violation of: array is not null";
         assert order != null : "Violation of: order is not null";
@@ -249,6 +252,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      *   ([entry at position i in buildHeap is not null])  and
      * </pre>
      */
+        //Eashan Vytla
     @SuppressWarnings("unchecked")
     private static <T> T[] buildHeap(Queue<T> q, Comparator<T> order) {
         assert q != null : "Violation of: q is not null";
@@ -382,6 +386,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      * $this.heapSize = 0
      * </pre>
      */
+    //Allen Thomas
     private void createNewRep(Comparator<T> order) {
 
         // TODO - fill in body
@@ -451,7 +456,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     /*
      * Kernel methods ---------------------------------------------------------
      */
-
+    //Allen Thomas
     @Override
     public final void add(T x) {
         assert x != null : "Violation of: x is not null";
@@ -461,7 +466,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
 
         assert this.conventionHolds();
     }
-
+    //Eashan Vytla
     @Override
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
@@ -470,7 +475,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
 
         assert this.conventionHolds();
     }
-
+    //Allen Thomas
     @Override
     public final T removeFirst() {
         assert !this
@@ -495,7 +500,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert this.conventionHolds();
         return this.machineOrder;
     }
-
+    //Allen Thomas
     @Override
     public final int size() {
 
