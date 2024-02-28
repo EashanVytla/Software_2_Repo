@@ -176,11 +176,11 @@ public abstract class SortingMachineTest {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "green",
                 "red", "purple");
         SortingMachine<String> mExpected = this.createFromArgsRef(ORDER, false,
-                "purple");
+                "red");
         String removed1 = m.removeFirst();
         String removed2 = m.removeFirst();
         assertEquals(removed1, "green");
-        assertEquals(removed2, "red");
+        assertEquals(removed2, "purple");
         assertEquals(mExpected, m);
     }
 
