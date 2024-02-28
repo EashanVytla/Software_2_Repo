@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Comparator;
 
@@ -242,7 +243,7 @@ public abstract class SortingMachineTest {
     public final void isInInsertionModeFalseManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "red",
                 "green", "blue");
-        assertEquals(m.isInInsertionMode(), false);
+        assertEquals(false, m.isInInsertionMode());
     }
 
     @Test
@@ -254,7 +255,7 @@ public abstract class SortingMachineTest {
     @Test
     public final void isInInsertionModeFalseOneTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "red");
-        assertEquals(m.isInInsertionMode(), false);
+        assertTrue(!m.isInInsertionMode());
     }
 
     @Test
