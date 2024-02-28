@@ -187,27 +187,22 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         int right = 2 * top + 2;
         if (left <= last) {
             if (right <= last) {
-                if (order.compare(array[left], array[right]) <= 0){
-                    if(order.compare(array[left], array[top]) <= 0){
+                if (order.compare(array[left], array[right]) <= 0) {
+                    if (order.compare(array[left], array[top]) <= 0) {
                         exchangeEntries(array, top, left);
                         siftDown(array, left, last, order);
                     }
-                } else{
-                    if(order.compare(array[right], array[top]) <= 0){
+                } else {
+                    if (order.compare(array[right], array[top]) <= 0) {
                         exchangeEntries(array, top, right);
                         siftDown(array, right, last, order);
                     }
                 }
             } else {
-                if(order.compare(array[left], array[top]) <= 0){
-                    exchangeEntries(array, top, right);
-                    siftDown(array, right, last, order);
+                if (order.compare(array[left], array[top]) <= 0) {
+                    exchangeEntries(array, top, left);
+                    siftDown(array, left, last, order);
                 }
-            }
-        }else{
-            if(order.compare(array[left], array[top]) <= 0){
-                exchangeEntries(array, top, left);
-                siftDown(array, left, last, order);
             }
         }
     }
@@ -253,18 +248,14 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * representation for a complete binary tree.
          */
         int endIndex = array.length - 1;
-        int leftIndex = 1 + 2*top;
+        int leftIndex = 1 + 2 * top;
         int rightIndex = 1 + leftIndex;
         // *** you must use the recursive algorithm discussed in class ***
-        if(!isHeap(array,top,endIndex,order)){
-
+        if (!isHeap(array, top, endIndex, order)) {
             heapify(array, leftIndex, order);
             heapify(array, rightIndex, order);
             siftDown(array, top, endIndex, order);
-
         }
-
-
     }
 
     /**
