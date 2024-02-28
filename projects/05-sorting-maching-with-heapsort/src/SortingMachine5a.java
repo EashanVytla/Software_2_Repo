@@ -116,8 +116,13 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert 0 <= j : "Violation of: 0 <= j";
         assert j < array.length : "Violation of: j < |array|";
 
+        //Store the current element in a temp
         T temp = array[i];
+
+        //Switch i and j
         array[i] = array[j];
+
+        //Set j to temp
         array[j] = temp;
     }
 
@@ -180,24 +185,38 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * representation for a complete binary tree.
          */
 
+        //left index is 2 * top + 1; right index is 2 * top + 2
         int left = 2 * top + 1;
         int right = 2 * top + 2;
+
+        //If the left index exists
         if (left <= last) {
+            //If the right index exists
             if (right <= last) {
+                //If the left is less than the right
                 if (order.compare(array[left], array[right]) <= 0) {
+                    //If the left is less than the top value
                     if (order.compare(array[left], array[top]) <= 0) {
+                        //Swap the top and left entries
                         exchangeEntries(array, top, left);
+                        //Recursive call
                         siftDown(array, left, last, order);
                     }
-                } else {
+                } else { //If the right is less than the left
+                    //If the right is less than the top
                     if (order.compare(array[right], array[top]) <= 0) {
+                        //Swap the top and right entries
                         exchangeEntries(array, top, right);
+                        //Recursive call
                         siftDown(array, right, last, order);
                     }
                 }
-            } else {
+            } else { //If the right index doesn't exists
+                //If the left value is less than the top
                 if (order.compare(array[left], array[top]) <= 0) {
+                    //Swap the root and left
                     exchangeEntries(array, top, left);
+                    //Recursive call
                     siftDown(array, left, last, order);
                 }
             }
@@ -288,9 +307,14 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * as shown, it results in a warning about an unchecked cast, though it
          * cannot fail.
          */
+        //Initialize the heap array
         T[] heap = (T[]) (new Object[q.length()]);
+        //Initialize the index
         int i = 0;
         //add all in queue to the heap
+
+        //Loop through the entire queue and dequeue storing each element in the
+        //heap array
         while (q.length() > 0) {
             //add the dequeue to the heap
             heap[i] = q.dequeue();
@@ -298,6 +322,8 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
             i++;
         }
         //make heap
+
+        //Convert the heap array to actual heap format
         heapify(heap, 0, order);
         return heap;
     }
@@ -423,7 +449,6 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         this.heapSize = 0;
         this.machineOrder = order;
         this.insertionMode = true;
-
     }
 
     /*
@@ -501,9 +526,15 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
         //build the heap and sent the size
+
+        //Build the heap array
         this.heap = buildHeap(this.entries, this.machineOrder);
+
+        //Set the heapSize
         this.heapSize = this.heap.length;
         //set to false for extraction mode
+
+        //Change the mode
         this.insertionMode = false;
 
         assert this.conventionHolds();

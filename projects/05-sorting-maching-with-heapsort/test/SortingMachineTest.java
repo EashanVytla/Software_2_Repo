@@ -139,6 +139,9 @@ public abstract class SortingMachineTest {
 
     // TODO - add test cases for add, changeToExtractionMode, removeFirst,
     // isInInsertionMode, order, and size
+
+    //Tests changeToExtractionMode when insertionMode is true and then set
+    //it to false
     @Test
     public final void testChangeToExtractionMode() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true);
