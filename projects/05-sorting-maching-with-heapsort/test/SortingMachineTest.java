@@ -213,7 +213,7 @@ public abstract class SortingMachineTest {
                 "green");
         assertEquals(m.size(), 1);
     }
-
+    @Test
     public final void sizeRoutineManyExtractionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false,
                 "green","red","purple");

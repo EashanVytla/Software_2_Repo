@@ -276,8 +276,12 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * cannot fail.
          */
         T[] heap = (T[]) (new Object[q.length()]);
-
-        // TODO - fill in rest of body
+        int i = 0;
+        while(q.length()>0){
+            heap[i] = q.dequeue();
+            i++;
+        }
+        heapify(heap, 0, order);
 
         return heap;
     }
@@ -398,7 +402,6 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
      */
     //Allen Thomas
     private void createNewRep(Comparator<T> order) {
-        //this.heap = new T[0];
         this.entries = new Queue1L<T>();
         this.heapSize = 0;
         this.machineOrder = order;
@@ -482,8 +485,9 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     @Override
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
-
-        // TODO - fill in body
+        this.heap = buildHeap(this.entries, this.machineOrder);
+        this.heapSize = this.heap.length;
+        this.insertionMode = false;
 
         assert this.conventionHolds();
     }
@@ -499,7 +503,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         int  top = 0;
         if(this.heapSize >1){
             exchangeEntries(this.heap, 0, this.heapSize-1);
-            siftDown(this.heap,top,this.heapSize-1,this.machineOrder);
+            siftDown(this.heap,top,this.heapSize-2,this.machineOrder);
         }
         this.heapSize--;
         assert this.conventionHolds();
