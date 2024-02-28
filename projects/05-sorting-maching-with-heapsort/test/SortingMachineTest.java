@@ -243,7 +243,7 @@ public abstract class SortingMachineTest {
     public final void isInInsertionModeFalseManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "red",
                 "green", "blue");
-        assertEquals(false, m.isInInsertionMode());
+        assertTrue(!m.isInInsertionMode());
     }
 
     @Test

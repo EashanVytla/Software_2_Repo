@@ -282,7 +282,6 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
             i++;
         }
         heapify(heap, 0, order);
-
         return heap;
     }
 
