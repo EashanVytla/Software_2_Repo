@@ -525,7 +525,6 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     @Override
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
-        //build the heap and sent the size
 
         //Build the heap array
         this.heap = buildHeap(this.entries, this.machineOrder);
