@@ -146,6 +146,7 @@ public abstract class SortingMachineTest {
         assertEquals("false", m.isInInsertionMode());
     }
 
+    //test add kernal method by adding a term to an a non empty SM
     @Test
     public final void addRoutineTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true,
@@ -156,6 +157,7 @@ public abstract class SortingMachineTest {
         assertEquals(mExpected, m);
     }
 
+    //test add kernal method by adding mulitple term to an a non empty SM
     @Test
     public final void addManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true,
@@ -168,6 +170,7 @@ public abstract class SortingMachineTest {
         assertEquals(mExpected, m);
     }
 
+    //test removeFirst kernal method by removing from a non empty SM
     @Test
     public final void removeFirstRoutineTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false,
@@ -177,7 +180,7 @@ public abstract class SortingMachineTest {
         assertEquals(mExpected, m);
         assertEquals(removed, "green");
     }
-
+    //test removeFirst kernal method by removing multple from a non empty SM
     @Test
     public final void removeFirstManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "green",
@@ -190,7 +193,7 @@ public abstract class SortingMachineTest {
         assertEquals(removed2, "purple");
         assertEquals(mExpected, m);
     }
-
+    //test removeFirst kernal method by removing fto end up with an empty SM
     @Test
     public final void removeFirstEmptyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false,
@@ -200,77 +203,79 @@ public abstract class SortingMachineTest {
         assertEquals(mExpected, m);
         assertEquals(removed, "green");
     }
-
+    //test size kernal method with one element in Insertion mode
     @Test
     public final void sizeRoutineOneInsertionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true,
                 "green");
         assertEquals(m.size(), 1);
     }
-
+    //test size kernal method with many elements in insertion mode
     public final void sizeRoutineManyInsertionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true,
                 "green","red","purple");
         assertEquals(m.size(), 3);
     }
-
+    //test size kernal method with one elements in extraction mode
     @Test
     public final void sizeRoutineOneExtractionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false,
                 "green");
         assertEquals(m.size(), 1);
     }
+    //test size kernal method with many elements in extraction mode
     @Test
     public final void sizeRoutineManyExtractionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false,
                 "green","red","purple");
         assertEquals(m.size(), 3);
     }
-
+    //test size kernal method with no elements in insertion mode
     @Test
     public final void sizeEmptyInsertionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true);
         assertEquals(m.size(), 0);
     }
+    //test size kernal method with no elements in extraction mode
     @Test
     public final void sizeEmptyExtractionModeTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false);
         assertEquals(m.size(), 0);
     }
 
-
+    //test isInInsertionMode method with many elements in insertion mode
     @Test
     public final void isInInsertionModeTrueManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true, "red",
                 "green", "blue");
         assertEquals(m.isInInsertionMode(), true);
     }
-
+    //test isInInsertionMode method with many elements in extraction mode
     @Test
     public final void isInInsertionModeFalseManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "red",
                 "green", "blue");
         assertTrue(!m.isInInsertionMode());
     }
-
+    //test isInInsertionMode method with one elements in insertion mode
     @Test
     public final void isInInsertionModeTrueOneTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true, "red");
         assertEquals(m.isInInsertionMode(), true);
     }
-
+    //test isInInsertionMode method with one elements in extraction mode
     @Test
     public final void isInInsertionModeFalseOneTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "red");
         assertTrue(!m.isInInsertionMode());
     }
-
+    //test isInInsertionMode method with no elements in insertion mode
     @Test
     public final void isInInsertionModeTrueEmptyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true);
         assertEquals(m.isInInsertionMode(), true);
     }
-
+    //test isInInsertionMode method with no elements in extraction mode
     @Test
     public final void isInInsertionModeFalseEmptyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false);
