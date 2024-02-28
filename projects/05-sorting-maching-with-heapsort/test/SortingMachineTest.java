@@ -121,7 +121,6 @@ public abstract class SortingMachineTest {
     /*
      * Sample test cases.
      */
-
     @Test
     public final void testConstructor() {
         SortingMachine<String> m = this.constructorTest(ORDER);
@@ -140,6 +139,13 @@ public abstract class SortingMachineTest {
 
     // TODO - add test cases for add, changeToExtractionMode, removeFirst,
     // isInInsertionMode, order, and size
+    @Test
+    public final void testChangeToExtractionMode() {
+        SortingMachine<String> m = this.createFromArgsTest(ORDER, true);
+        m.changeToExtractionMode();
+        assertEquals("false", m.isInInsertionMode());
+    }
+
     @Test
     public final void addRoutineTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, true,
@@ -171,6 +177,7 @@ public abstract class SortingMachineTest {
         assertEquals(mExpected, m);
         assertEquals(removed, "green");
     }
+
     @Test
     public final void removeFirstManyTest() {
         SortingMachine<String> m = this.createFromArgsTest(ORDER, false, "green",

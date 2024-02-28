@@ -117,7 +117,6 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert 0 <= j : "Violation of: 0 <= j";
         assert j < array.length : "Violation of: j < |array|";
 
-        // TODO - fill in body
         T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
@@ -294,7 +293,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          */
         T[] heap = (T[]) (new Object[q.length()]);
         int i = 0;
-        while(q.length()>0){
+        while (q.length() > 0) {
             heap[i] = q.dequeue();
             i++;
         }
@@ -517,9 +516,9 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
 
         T first = this.heap[0];
         int  top = 0;
-        if(this.heapSize >1){
-            exchangeEntries(this.heap, 0, this.heapSize-1);
-            siftDown(this.heap,top,this.heapSize-2,this.machineOrder);
+        if (this.heapSize > 1) {
+            exchangeEntries(this.heap, 0, this.heapSize - 1);
+            siftDown(this.heap, top, this.heapSize - 2, this.machineOrder);
         }
         this.heapSize--;
         assert this.conventionHolds();
@@ -543,11 +542,11 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
     public final int size() {
 
         int size = 0;
-        if(!this.insertionMode){
+        if (!this.insertionMode) {
             //size of heap when in extraction
             size = this.heapSize;
 
-        }else{
+        } else {
             //length of queue in insertion
             size = this.entries.length();
 
