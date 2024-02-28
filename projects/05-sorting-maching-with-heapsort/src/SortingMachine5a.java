@@ -118,7 +118,9 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert j < array.length : "Violation of: j < |array|";
 
         // TODO - fill in body
-
+        T temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 
     /**
@@ -181,9 +183,33 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
          * representation for a complete binary tree.
          */
 
-        // TODO - fill in body
-        // *** you must use the recursive algorithm discussed in class ***
-
+        int left = 2 * top + 1;
+        int right = 2 * top + 2;
+        if (left <= last) {
+            if (right <= last) {
+                if (order.compare(array[left], array[right]) <= 0){
+                    if(order.compare(array[left], array[top]) <= 0){
+                        exchangeEntries(array, top, left);
+                        siftDown(array, left, last, order);
+                    }
+                } else{
+                    if(order.compare(array[right], array[top]) <= 0){
+                        exchangeEntries(array, top, right);
+                        siftDown(array, right, last, order);
+                    }
+                }
+            } else {
+                if(order.compare(array[left], array[top]) <= 0){
+                    exchangeEntries(array, top, right);
+                    siftDown(array, right, last, order);
+                }
+            }
+        }else{
+            if(order.compare(array[left], array[top]) <= 0){
+                exchangeEntries(array, top, left);
+                siftDown(array, left, last, order);
+            }
+        }
     }
 
     /**
