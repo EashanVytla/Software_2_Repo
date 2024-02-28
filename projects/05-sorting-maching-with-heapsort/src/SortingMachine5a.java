@@ -506,7 +506,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         this.entries.enqueue(x);
         assert this.conventionHolds();
     }
-    //Eashan Vytla
+    //Allen Thomas
     @Override
     public final void changeToExtractionMode() {
         assert this.isInInsertionMode() : "Violation of: this.insertion_mode";
