@@ -239,7 +239,19 @@ public class List3<T> extends ListSecondary<T> {
     public final void addRightFront(T x) {
         assert x != null : "Violation of: x is not null";
 
-        // TODO - fill in body
+
+        //create new node
+        Node pointer = new Node();
+        //assign node data
+        pointer.data = x;
+        pointer.next = this.lastLeft.next;
+        //change the pointers
+        pointer.next.previous = pointer;
+        this.lastLeft.next = pointer;
+        pointer.previous = this.lastLeft;
+
+        //change length
+        this.rightLength++;
 
         assert this.conventionHolds();
     }
@@ -258,7 +270,7 @@ public class List3<T> extends ListSecondary<T> {
     @Override
     public final void advance() {
         assert this.rightLength() > 0 : "Violation of: this.right /= <>";
-
+        //move last left
         this.lastLeft = this.lastLeft.next;
         //change the lengths
         this.leftLength++;
@@ -269,7 +281,7 @@ public class List3<T> extends ListSecondary<T> {
     //Eashan
     @Override
     public final void moveToStart() {
-
+        //move lastLeft node
         this.lastLeft = this.preStart;
 
         this.rightLength += this.leftLength;
@@ -282,7 +294,7 @@ public class List3<T> extends ListSecondary<T> {
     @Override
     public final int leftLength() {
         assert this.conventionHolds();
-
+        //return varaible
         return this.leftLength;
 
 
@@ -367,7 +379,12 @@ public class List3<T> extends ListSecondary<T> {
     public final void retreat() {
         assert this.leftLength() > 0 : "Violation of: this.left /= <>";
 
-        // TODO - fill in body
+
+        //move postio back to previous
+        this.lastLeft = this.lastLeft.previous;
+        //change corresponding length
+        this.leftLength--;
+        this.rightLength++;
 
         assert this.conventionHolds();
     }
