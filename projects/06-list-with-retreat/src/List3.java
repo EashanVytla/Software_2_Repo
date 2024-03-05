@@ -234,7 +234,7 @@ public class List3<T> extends ListSecondary<T> {
         assert this.conventionHolds();
         assert localSource.conventionHolds();
     }
-    //Allen
+
     @Override
     public final void addRightFront(T x) {
         assert x != null : "Violation of: x is not null";
@@ -255,18 +255,22 @@ public class List3<T> extends ListSecondary<T> {
 
         assert this.conventionHolds();
     }
-    //Eashan
+
     @Override
     public final T removeRightFront() {
         assert this.rightLength() > 0 : "Violation of: this.right /= <>";
 
-        // TODO - fill in body
+        T element = this.lastLeft.next.data;
+        //adjust pointers to remove element
+        this.lastLeft.next = this.lastLeft.next.next;
+        this.lastLeft.next.previous = this.lastLeft;
+        //change length to -1 after adjusting pointers
+        this.rightLength--;
 
         assert this.conventionHolds();
-        // Fix this line to return the result after checking the convention.
-        return null;
+        return element;
     }
-    //Allen
+
     @Override
     public final void advance() {
         assert this.rightLength() > 0 : "Violation of: this.right /= <>";
@@ -278,19 +282,19 @@ public class List3<T> extends ListSecondary<T> {
 
         assert this.conventionHolds();
     }
-    //Eashan
+
     @Override
     public final void moveToStart() {
         //move lastLeft node
         this.lastLeft = this.preStart;
-
+        //change add the lefth length
         this.rightLength += this.leftLength;
         //set the length backt to 0
         this.leftLength = 0;
 
         assert this.conventionHolds();
     }
-    //Allen
+
     @Override
     public final int leftLength() {
         assert this.conventionHolds();
@@ -299,7 +303,7 @@ public class List3<T> extends ListSecondary<T> {
 
 
     }
-    //Eashan
+
     @Override
     public final int rightLength() {
         assert this.conventionHolds();
@@ -366,21 +370,25 @@ public class List3<T> extends ListSecondary<T> {
     /*
      * Other methods (overridden for performance reasons) ---------------------
      */
-    //Eashan
+
     @Override
     public final void moveToFinish() {
-
-        // TODO - fill in body
+        //move pointer
+        this.lastLeft = this.postFinish.previous;
+        //make add legnth of right to left
+        this.leftLength += this.rightLength;
+        //set right length back to 0
+        this.rightLength = 0;
 
         assert this.conventionHolds();
     }
-    //Allen
+
     @Override
     public final void retreat() {
         assert this.leftLength() > 0 : "Violation of: this.left /= <>";
 
 
-        //move postio back to previous
+        //move position back to previous
         this.lastLeft = this.lastLeft.previous;
         //change corresponding length
         this.leftLength--;
