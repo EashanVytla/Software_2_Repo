@@ -60,7 +60,7 @@ import components.sortingmachine.SortingMachineSecondary;
  *   this = (false, $this.machineOrder, multiset_entries($this.heap[0, $this.heapSize)))
  * </pre>
  *
- * @author Put your name here
+ * @author Eashan Vytla & Allen Thomas
  *
  */
 public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
@@ -572,6 +572,7 @@ public class SortingMachine5a<T> extends SortingMachineSecondary<T> {
         assert this.conventionHolds();
         return this.machineOrder;
     }
+
     //Allen Thomas
     @Override
     public final int size() {
