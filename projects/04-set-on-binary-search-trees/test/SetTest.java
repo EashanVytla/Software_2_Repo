@@ -8,7 +8,7 @@ import components.set.Set;
 /**
  * JUnit test fixture for {@code Set<String>}'s constructor and kernel methods.
  *
- * @author Put your name here
+ * @author Allen Thomas and Eashan Vytla
  *
  */
 public abstract class SetTest {
@@ -72,6 +72,15 @@ public abstract class SetTest {
     }
 
     // TODO - add test cases for constructor, add, remove, removeAny, contains, and size
+
+
+    @Test
+    public void onlyConstructorTest() {
+        Set<String> actual = this.constructorTest();
+        Set<String> expected = this.createFromArgsRef();
+        assertEquals(actual, expected);
+    }
+
     //testing adding from empty set
     @Test
     public void addEmptySetTest() {
@@ -117,6 +126,16 @@ public abstract class SetTest {
         Set<String> expected = this.createFromArgsRef("one");
         String removedActual = actual.removeAny();
         boolean contains = expected.contains(removedActual);
+        assertTrue(contains);
+    }
+
+    //tests remove any to become empty set
+    @Test
+    public void removeAnyExistingTest() {
+        Set<String> actual = this.createFromArgsTest("one","two", "three");
+        Set<String> expected = this.createFromArgsRef("one", "two", "three");
+        String removed = actual.removeAny();
+        boolean contains = expected.contains(removed);
         assertTrue(contains);
     }
 
