@@ -62,6 +62,15 @@ public class NaturalNumber3Test extends NaturalNumberTest {
         assertEquals(test, actual);
     }
 
+    @Test
+    public void multiplyBy10TestZero() {
+        NaturalNumber test = this.constructorTest(0);
+        NaturalNumber actual = this.constructorRef(0);
+        test.multiplyBy10(0);
+
+        assertEquals(test, actual);
+    }
+
     //test empty case where NN is empty and appends 2
     @Test
     public void multiplyBy10EmptyTest() {
