@@ -252,7 +252,6 @@ public class Map4<K, V> extends MapSecondary<K, V> {
 
     @Override
     public final int size() {
-        //return size variable thats been being updated
         return this.size;
     }
 
