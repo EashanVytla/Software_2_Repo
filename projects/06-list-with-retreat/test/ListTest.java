@@ -753,6 +753,30 @@ public abstract class ListTest {
         assertEquals(list2, list1);
     }
 
+    @Test
+    public final void testRetreat() {
+        List<String> testList = this.createFromArgsRef(3, "red", "blue", "green");
 
+        testList.retreat();
 
+        assertEquals(testList.leftLength(), 2);
+    }
+
+    @Test
+    public final void testRetreatMax() {
+        List<String> testList = this.createFromArgsRef(3, "red", "blue", "green");
+
+        testList.retreat();
+
+        assertEquals(testList.leftLength(), 2);
+    }
+
+    @Test
+    public final void testRetreatMoreOnList() {
+        List<String> testList = this.createFromArgsRef(4, "red", "blue", "green", "purple");
+
+        testList.retreat();
+
+        assertEquals(testList.leftLength(), 3);
+    }
 }
