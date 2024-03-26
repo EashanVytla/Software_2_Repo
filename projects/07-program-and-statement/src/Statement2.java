@@ -117,9 +117,10 @@ public class Statement2 extends StatementSecondary {
      */
     private void createNewRep() {
 
+        this.rep = new Tree1<StatementLabel>();
+
         StatementLabel root = new StatementLabel(Kind.BLOCK);
         Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
-        this.rep = new Tree1<StatementLabel>();
         this.rep.assemble(root, children);
 
     }
@@ -176,10 +177,13 @@ public class Statement2 extends StatementSecondary {
     @Override
     public final Kind kind() {
 
-        // TODO - fill in body
-
-        // Fix this line to return the result.
-        return null;
+        Sequence<Tree<StatementLabel>> nodes = this.rep.newSequenceOfTree();
+        //set label to root label
+        StatementLabel label = this.rep.disassemble(nodes);
+        //reassemble
+        this.rep.assemble(label, nodes);
+        //return kind of label
+        return label.kind;
     }
 
     @Override
@@ -193,8 +197,17 @@ public class Statement2 extends StatementSecondary {
         assert pos <= this.lengthOfBlock() : ""
                 + "Violation of: pos <= [length of this BLOCK]";
         assert s.kind() != Kind.BLOCK : "Violation of: [s is not a BLOCK statement]";
-
-        // TODO - fill in body
+        //make new statement type
+        Statement2 newS = (Statement2) s;
+        //make childeren tree of same type
+        Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        //get root label
+        StatementLabel label = this.rep.disassemble(children);
+        //add the statement to block at pos
+        children.add(pos, newS.rep);
+        //reassemble label to childern
+        this.rep.assemble(label, children);
+        newS.createNewRep();//clear s
 
     }
 
@@ -213,8 +226,15 @@ public class Statement2 extends StatementSecondary {
          */
         Statement2 s = this.newInstance();
 
-        // TODO - fill in body
+        Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        //get root label
+        StatementLabel label = this.rep.disassemble(children);
+        //set s to the removed staement
+        s.rep = children.remove(pos);
+        //reassemble root label to block
+        this.rep.assemble(label, children);
 
+        //return removed
         return s;
     }
 
@@ -223,10 +243,13 @@ public class Statement2 extends StatementSecondary {
         assert this.kind() == Kind.BLOCK : ""
                 + "Violation of: [this is a BLOCK statement]";
 
-        // TODO - fill in body
-
-        // Fix this line to return the result.
-        return 0;
+        Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        //set label to root label
+        StatementLabel label = this.rep.disassemble(children);
+        //set length to number of childerent
+        int lengthOfBlock = children.length();
+        this.rep.assemble(label, children);
+        return lengthOfBlock;
     }
 
     @Override

@@ -22,7 +22,7 @@ public abstract class StatementTest {
     /**
      * The name of a file containing a sequence of BL statements.
      */
-    private static final String FILE_NAME_1 = "data/statement-sample.bl";
+    private static final String FILE_NAME_1 = "projects/07-program-and-statement/data/statement-sample.bl";
 
     // TODO - define file names for additional test inputs
 
