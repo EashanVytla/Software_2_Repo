@@ -126,14 +126,10 @@ public abstract class ListTest {
 
     @Test
     public final void testAddRightFrontLeftEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0, "red");
-        /*
-         * Call method under test
-         */
+
         list1.addRightFront("red");
         /*
          * Assert that values of variables match expectations
@@ -143,14 +139,10 @@ public abstract class ListTest {
 
     @Test
     public final void testAddRightFrontLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "red", "blue");
         List<String> list2 = this.createFromArgsRef(0, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         list1.addRightFront("green");
         /*
          * Assert that values of variables match expectations
@@ -160,16 +152,12 @@ public abstract class ListTest {
 
     @Test
     public final void testAddRightFrontLeftNonEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "purple", "red");
-        /*
-         * Call method under test
-         */
+
         list1.addRightFront("red");
         /*
          * Assert that values of variables match expectations
@@ -179,16 +167,12 @@ public abstract class ListTest {
 
     @Test
     public final void testAddRightFrontLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(2, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(2, "yellow", "purple",
                 "green", "purple");
-        /*
-         * Call method under test
-         */
+
         list1.addRightFront("green");
         /*
          * Assert that values of variables match expectations
@@ -198,14 +182,10 @@ public abstract class ListTest {
 
     @Test
     public final void testRemoveRightFrontLeftEmptyRightOne() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "red");
         List<String> list2 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         String s = list1.removeRightFront();
         /*
          * Assert that values of variables match expectations
@@ -216,14 +196,10 @@ public abstract class ListTest {
 
     @Test
     public final void testRemoveRightFrontLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(0, "red", "blue");
-        /*
-         * Call method under test
-         */
+
         String s = list1.removeRightFront();
         /*
          * Assert that values of variables match expectations
@@ -234,16 +210,12 @@ public abstract class ListTest {
 
     @Test
     public final void testRemoveRightFrontLeftNonEmptyRightOne() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple", "red");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         String s = list1.removeRightFront();
         /*
          * Assert that values of variables match expectations
@@ -254,16 +226,12 @@ public abstract class ListTest {
 
     @Test
     public final void testRemoveRightFrontLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(2, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(2, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         String s = list1.removeRightFront();
         /*
          * Assert that values of variables match expectations
@@ -274,14 +242,10 @@ public abstract class ListTest {
 
     @Test
     public final void testAdvanceLeftEmptyRightOne() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "red");
         List<String> list2 = this.createFromArgsRef(1, "red");
-        /*
-         * Call method under test
-         */
+
         list1.advance();
         /*
          * Assert that values of variables match expectations
@@ -291,14 +255,10 @@ public abstract class ListTest {
 
     @Test
     public final void testAdvanceLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(1, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         list1.advance();
         /*
          * Assert that values of variables match expectations
@@ -308,16 +268,12 @@ public abstract class ListTest {
 
     @Test
     public final void testAdvanceLeftNonEmptyRightOne() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple", "red");
-        List<String> list2 = this.createFromArgsRef(4, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(4, "yellow", "purple",
                 "purple", "red");
-        /*
-         * Call method under test
-         */
+
         list1.advance();
         /*
          * Assert that values of variables match expectations
@@ -327,16 +283,12 @@ public abstract class ListTest {
 
     @Test
     public final void testAdvanceLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "green", "purple");
-        /*
-         * Call method under test
-         */
+
         list1.advance();
         /*
          * Assert that values of variables match expectations
@@ -346,14 +298,10 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToStartLeftEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         list1.moveToStart();
         /*
          * Assert that values of variables match expectations
@@ -363,14 +311,10 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToStartLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(0, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         list1.moveToStart();
         /*
          * Assert that values of variables match expectations
@@ -380,16 +324,12 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToStartLeftNonEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(0, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(0, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         list1.moveToStart();
         /*
          * Assert that values of variables match expectations
@@ -399,12 +339,10 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToStartLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(0, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(0, "yellow", "purple",
                 "green", "purple");
         list1.moveToStart();
         /*
@@ -415,14 +353,10 @@ public abstract class ListTest {
 
     @Test
     public final void testRightLengthLeftEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         int i = list1.rightLength();
         /*
          * Assert that values of variables match expectations
@@ -433,14 +367,10 @@ public abstract class ListTest {
 
     @Test
     public final void testRightLengthLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(0, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         int i = list1.rightLength();
         /*
          * Assert that values of variables match expectations
@@ -451,16 +381,12 @@ public abstract class ListTest {
 
     @Test
     public final void testRightLengthLeftNonEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         int i = list1.rightLength();
         /*
          * Assert that values of variables match expectations
@@ -471,16 +397,12 @@ public abstract class ListTest {
 
     @Test
     public final void testRightLengthLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(2, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(2, "yellow", "purple",
                 "green", "purple");
-        /*
-         * Call method under test
-         */
+
         int i = list1.rightLength();
         /*
          * Assert that values of variables match expectations
@@ -491,14 +413,10 @@ public abstract class ListTest {
 
     @Test
     public final void testLeftLengthLeftEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         int i = list1.leftLength();
         /*
          * Assert that values of variables match expectations
@@ -509,14 +427,10 @@ public abstract class ListTest {
 
     @Test
     public final void testLeftLengthLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(0, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         int i = list1.leftLength();
         /*
          * Assert that values of variables match expectations
@@ -527,16 +441,12 @@ public abstract class ListTest {
 
     @Test
     public final void testLeftLengthLeftNonEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         int i = list1.leftLength();
         /*
          * Assert that values of variables match expectations
@@ -547,16 +457,12 @@ public abstract class ListTest {
 
     @Test
     public final void testLeftLengthLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(2, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(2, "yellow", "purple",
                 "green", "purple");
-        /*
-         * Call method under test
-         */
+
         int i = list1.leftLength();
         /*
          * Assert that values of variables match expectations
@@ -571,15 +477,11 @@ public abstract class ListTest {
 
     @Test
     public final void testIteratorEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0);
         List<String> list3 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         for (String s : list1) {
             list2.addRightFront(s);
         }
@@ -592,16 +494,12 @@ public abstract class ListTest {
 
     @Test
     public final void testIteratorOnlyRight() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "red", "blue");
         List<String> list2 = this.createFromArgsRef(0);
         List<String> list3 = this.createFromArgsRef(0, "red", "blue");
         List<String> list4 = this.createFromArgsRef(0, "blue", "red");
-        /*
-         * Call method under test
-         */
+
         for (String s : list1) {
             list2.addRightFront(s);
         }
@@ -614,16 +512,12 @@ public abstract class ListTest {
 
     @Test
     public final void testIteratorOnlyLeft() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(3, "red", "green", "blue");
         List<String> list2 = this.createFromArgsRef(0);
         List<String> list3 = this.createFromArgsRef(3, "red", "green", "blue");
         List<String> list4 = this.createFromArgsRef(0, "blue", "green", "red");
-        /*
-         * Call method under test
-         */
+
         for (String s : list1) {
             list2.addRightFront(s);
         }
@@ -636,9 +530,7 @@ public abstract class ListTest {
 
     @Test
     public final void testIteratorLeftAndRight() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(2, "purple", "red",
                 "green", "blue", "yellow");
         List<String> list2 = this.createFromArgsRef(0);
@@ -646,9 +538,7 @@ public abstract class ListTest {
                 "blue", "yellow");
         List<String> list4 = this.createFromArgsRef(0, "yellow", "blue",
                 "green", "red", "purple");
-        /*
-         * Call method under test
-         */
+
         for (String s : list1) {
             list2.addRightFront(s);
         }
@@ -665,14 +555,10 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToFinishLeftEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0);
-        /*
-         * Call method under test
-         */
+
         list1.moveToFinish();
         /*
          * Assert that values of variables match expectations
@@ -682,14 +568,10 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToFinishLeftEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0, "green", "red", "blue");
         List<String> list2 = this.createFromArgsRef(3, "green", "red", "blue");
-        /*
-         * Call method under test
-         */
+
         list1.moveToFinish();
         /*
          * Assert that values of variables match expectations
@@ -699,16 +581,12 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToFinishLeftNonEmptyRightEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(3, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(3, "yellow", "purple",
                 "purple");
-        List<String> list2 = this.createFromArgsRef(3, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(3, "yellow", "purple",
                 "purple");
-        /*
-         * Call method under test
-         */
+
         list1.moveToFinish();
         /*
          * Assert that values of variables match expectations
@@ -718,16 +596,12 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToFinishLeftNonEmptyRightNonEmpty() {
-        /*
-         * Set up variables
-         */
-        List<String> list1 = this.createFromArgsTest(2, "yellow", "orange",
+
+        List<String> list1 = this.createFromArgsTest(2, "yellow", "purple",
                 "green", "purple");
-        List<String> list2 = this.createFromArgsRef(4, "yellow", "orange",
+        List<String> list2 = this.createFromArgsRef(4, "yellow", "purple",
                 "green", "purple");
-        /*
-         * Call method under test
-         */
+
         list1.moveToFinish();
         /*
          * Assert that values of variables match expectations
@@ -737,46 +611,88 @@ public abstract class ListTest {
 
     @Test
     public final void testMoveToFinishShowBug() {
-        /*
-         * Set up variables
-         */
+
         List<String> list1 = this.createFromArgsTest(0);
         List<String> list2 = this.createFromArgsRef(0, "red");
-        /*
-         * Call method under test
-         */
+
         list1.moveToFinish();
-        /*
-         * Evaluate the correctness of the result
-         */
+
         list1.addRightFront("red");
         assertEquals(list2, list1);
     }
 
+
+
     @Test
-    public final void testRetreat() {
-        List<String> testList = this.createFromArgsRef(3, "red", "blue", "green");
+    public final void testRetreatLeftOneRightNonEmpty() {
 
-        testList.retreat();
+        List<String> list1 = this.createFromArgsTest(1, "red", "blue", "yellow",
+        "green");
+        List<String> list2 = this.createFromArgsRef(0, "red", "blue", "yellow",
+        "green");
 
-        assertEquals(testList.leftLength(), 2);
+        list1.retreat();
+
+        assertEquals(list2, list1);
+    }
+
+
+    @Test
+    public final void testRetreatLeftOneRightEmpty() {
+
+        List<String> list1 = this.createFromArgsTest(1, "red");
+        List<String> list2 = this.createFromArgsRef(0, "red");
+
+        list1.retreat();
+
+        assertEquals(list2, list1);
+    }
+    @Test
+    public final void testRetreatLeftNonEmptyRightOne() {
+
+        List<String> list1 = this.createFromArgsTest(4, "red", "blue", "green",
+                "yellow", "purple");
+        List<String> list2 = this.createFromArgsRef(3, "red", "blue", "green",
+                "yellow", "purple");
+
+        list1.retreat();
+
+        assertEquals(list2, list1);
+    }
+    @Test
+    public final void testRetreatLeftNonEmptyRightNonEmpty() {
+
+        List<String> list1 = this.createFromArgsTest(2, "red", "blue", "green",
+                "purple");
+        List<String> list2 = this.createFromArgsRef(1, "red", "blue", "green",
+                "purple");
+
+        list1.retreat();
+        assertEquals(list2, list1);
     }
 
     @Test
-    public final void testRetreatMax() {
-        List<String> testList = this.createFromArgsRef(3, "red", "blue", "green");
+    public final void testRetreatLeftOneRightOne() {
 
-        testList.retreat();
+        List<String> list1 = this.createFromArgsTest(1, "red", "blue");
+        List<String> list2 = this.createFromArgsRef(0, "red", "blue");
 
-        assertEquals(testList.leftLength(), 2);
+        list1.retreat();
+
+        assertEquals(list2, list1);
     }
-
     @Test
-    public final void testRetreatMoreOnList() {
-        List<String> testList = this.createFromArgsRef(4, "red", "blue", "green", "purple");
+    public final void testRetreatLeftNonEmptyRightEmpty() {
 
-        testList.retreat();
+        List<String> list1 = this.createFromArgsTest(4, "red", "blue", "green",
+                "purple");
+        List<String> list2 = this.createFromArgsRef(3, "red", "blue", "green",
+                "purple");
 
-        assertEquals(testList.leftLength(), 3);
+        list1.retreat();
+
+        assertEquals(list2, list1);
     }
+
+
 }

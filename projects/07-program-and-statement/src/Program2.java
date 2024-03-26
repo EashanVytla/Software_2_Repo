@@ -106,9 +106,11 @@ public class Program2 extends ProgramSecondary {
      */
     private void createNewRep() {
 
-        // TODO - fill in body
-        // Make sure to use Statement1 from the library
         // Use Map1L for the context if you want the asserts below to match
+        this.context = new Map1L<String, Statement>();
+        // Make sure to use Statement1 from the library
+        this.body = new Statement1();
+        this.name = "Unnamed";
 
     }
 
@@ -169,26 +171,24 @@ public class Program2 extends ProgramSecondary {
         assert Tokenizer.isIdentifier(n) : ""
                 + "Violation of: n is a valid IDENTIFIER";
 
-        // TODO - fill in body
+        this.name = n;
 
     }
 
     @Override
     public final String name() {
 
-        // TODO - fill in body
+        return this.name;
 
-        // Fix this line to return the result.
-        return null;
+
     }
 
     @Override
     public final Map<String, Statement> newContext() {
 
-        // TODO - fill in body
+        return this.context.newInstance();
 
-        // Fix this line to return the result.
-        return null;
+
     }
 
     @Override
@@ -202,18 +202,23 @@ public class Program2 extends ProgramSecondary {
                 + " of primitive instructions in the BL language";
         assert allBlocks(c) : "Violation of: bodies in c"
                 + " are all BLOCK statements";
-
-        // TODO - fill in body
+            //create a temperary context to hold
+            Map<String, Statement> holder = c.newInstance();
+            //move from the context to temp
+            holder.transferFrom(c);
+            //move this.context to parameter c
+            c.transferFrom(this.context);
+            //swap from temparary to context
+            this.context.transferFrom(holder);
 
     }
 
     @Override
     public final Statement newBody() {
 
-        // TODO - fill in body
+        return this.body.newInstance();
 
-        // Fix this line to return the result.
-        return null;
+
     }
 
     @Override
@@ -221,8 +226,14 @@ public class Program2 extends ProgramSecondary {
         assert b != null : "Violation of: b is not null";
         assert b instanceof Statement1 : "Violation of: b is a Statement1";
         assert b.kind() == Kind.BLOCK : "Violation of: b is a BLOCK statement";
-
-        // TODO - fill in body
+        // creater holder for the statement body
+        Statement holder = b.newInstance();
+        //move statment to temp holder
+        holder.transferFrom(b);
+        //move the statement from parameter to body
+        b.transferFrom(this.body);
+        //move data from this.body to parameter
+        this.body.transferFrom(holder);
 
     }
 
