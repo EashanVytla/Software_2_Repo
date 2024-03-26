@@ -21,7 +21,7 @@ public abstract class ProgramTest {
     /**
      * The name of a file containing a BL program.
      */
-    private static final String FILE_NAME_1 = "data/program-sample.bl";
+    private static final String FILE_NAME_1 = "projects/07-program-and-statement/data/program-sample.bl";
 
     // TODO - define file names for additional test inputs
 
@@ -283,5 +283,16 @@ public abstract class ProgramTest {
     }
 
     // TODO - provide additional test cases to thoroughly test ProgramKernel
+    //test empty program
+    @Test
+    public void testNameEmptyProgram() {
+
+      Program pTest = this.constructorTest();
+      String name = pTest.name();
+
+      assertEquals("Unnamed", name);
+    }
+
+
 
 }

@@ -2,6 +2,7 @@ import components.sequence.Sequence;
 import components.statement.Statement;
 import components.statement.StatementSecondary;
 import components.tree.Tree;
+import components.tree.Tree1;
 import components.utilities.Tokenizer;
 
 /**
@@ -11,7 +12,7 @@ import components.utilities.Tokenizer;
  * @convention [$this.rep is a valid representation of a Statement]
  * @correspondence this = $this.rep
  *
- * @author Put your name here
+ * @author Allen and Eashan
  *
  */
 public class Statement2 extends StatementSecondary {
@@ -116,7 +117,10 @@ public class Statement2 extends StatementSecondary {
      */
     private void createNewRep() {
 
-        // TODO - fill in body
+        StatementLabel root = new StatementLabel(Kind.BLOCK);
+        Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        this.rep = new Tree1<StatementLabel>();
+        this.rep.assemble(root, children);
 
     }
 
