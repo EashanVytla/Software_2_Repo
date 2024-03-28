@@ -232,14 +232,12 @@ public class Statement2 extends StatementSecondary {
         assert s instanceof Statement2 : "Violation of: s is a Statement2";
         assert s.kind() == Kind.BLOCK : ""
                 + "Violation of: [s is a BLOCK statement]";
-
-
-        Statement2 newS = (Statement2) s;
+        Statement2 localS = (Statement2) s;
         StatementLabel label = new StatementLabel(Kind.IF, c);
         Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
-        children.add(0, newS.rep);
+        children.add(0, localS.rep);
         this.rep.assemble(label, children);
-        newS.createNewRep();
+        localS.createNewRep(); // clears s
     }
 
     @Override
@@ -249,11 +247,10 @@ public class Statement2 extends StatementSecondary {
         assert s instanceof Statement2 : "Violation of: s is a Statement2";
         assert this.kind() == Kind.IF : ""
                 + "Violation of: [this is an IF statement]";
-
-        Statement2 newS = (Statement2) s;
+        Statement2 localS = (Statement2) s;
         Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
         StatementLabel label = this.rep.disassemble(children);
-        newS.rep = children.remove(0);
+        localS.rep = children.remove(0);
         this.createNewRep(); // clears this
         return label.condition;
     }
