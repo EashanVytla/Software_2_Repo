@@ -357,10 +357,11 @@ public class Statement2 extends StatementSecondary {
                 + "Violation of: inst is a valid IDENTIFIER";
 
         this.createNewRep();
-
+        //create new tree of same dynamic type
         Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        //create call statement
         StatementLabel call = new StatementLabel(Kind.CALL, inst);
-
+        //reassemble tree
         this.rep.assemble(call, children);
     }
 
@@ -368,8 +369,9 @@ public class Statement2 extends StatementSecondary {
     public final String disassembleCall() {
         assert this.kind() == Kind.CALL : ""
                 + "Violation of: [this is a CALL statement]";
-
+        //create new tree of same type
         Sequence<Tree<StatementLabel>> children = this.rep.newSequenceOfTree();
+        //get root label
         StatementLabel root = this.rep.disassemble(children);
 
         this.createNewRep();
