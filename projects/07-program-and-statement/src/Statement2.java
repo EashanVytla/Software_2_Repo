@@ -172,6 +172,7 @@ public class Statement2 extends StatementSecondary {
 
     @Override
     public final Kind kind() {
+        //return kind of root
         return this.rep.root().kind;
     }
 
@@ -219,7 +220,7 @@ public class Statement2 extends StatementSecondary {
     public final int lengthOfBlock() {
         assert this.kind() == Kind.BLOCK : ""
                 + "Violation of: [this is a BLOCK statement]";
-
+        //return the length of the tree
         return this.rep.numberOfSubtrees();
     }
 
@@ -340,13 +341,15 @@ public class Statement2 extends StatementSecondary {
         assert this.kind() == Kind.WHILE : ""
                 + "Violation of: [this is a WHILE statement]";
 
+        //new local s
         Statement2 newS = (Statement2) s;
-        Condition c = this.rep.root().condition;
 
+        Condition c = this.rep.root().condition;
+        //disassemble
         newS.rep.transferFrom(this.rep.removeSubtree(0));
 
         this.createNewRep();
-
+        //return condition
         return c;
     }
 
